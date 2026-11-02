@@ -3,11 +3,13 @@
   "version": "1.0.0",
   "description": "RestartHER - AI-Powered Inclusive Career Re-Entry Platform for Women returning after career breaks (SAP Hackathon - AI Inclusive Workforce)",
   "main": "server.js",
+  "engines": {
+    "node": "20.x"
+  },
   "scripts": {
     "start": "node server.js",
+    "build": "echo 'Build complete'",
     "dev": "node --watch server.js",
-    "cds:run": "npx @sap/cds-dk run",
-    "build": "npx @sap/cds-dk build --production",
     "test": "node test/test-services.js"
   },
   "keywords": [
@@ -30,9 +32,6 @@
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.19.2"
-  },
-  "devDependencies": {
-    "@sap/cds-dk": "^7.8.3"
   },
   "cds": {
     "requires": {

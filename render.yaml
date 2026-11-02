@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: restarther
+    env: node
+    plan: free
+    buildCommand: npm install --omit=dev
+    startCommand: node server.js
+    envVars:
+      - key: NODE_VERSION
+        value: 20.18.0
+      - key: GEMINI_API_KEY
+        sync: false
