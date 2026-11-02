@@ -1,0 +1,4 @@
+ID;name;industry;returnshipProgramName;isInclusiveCertified;biasMitigationScore;successFactorsPartnerId
+comp-001;SAP Labs Global;Enterprise Software & Cloud;SAP Returnship Pathway 2026;true;98.4;SF-PARTNER-SAP01
+comp-002;Accenture Cloud Services;Consulting & Systems Integration;Women in Technology Re-Entry;true;96.8;SF-PARTNER-AC02
+comp-003;Microsoft Enterprise Alliances;Cloud Infrastructure;Microsoft Leap Returnship Program;true;95.5;SF-PARTNER-MS03

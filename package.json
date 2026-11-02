@@ -1,0 +1,50 @@
+{
+  "name": "restarther",
+  "version": "1.0.0",
+  "description": "RestartHER - AI-Powered Inclusive Career Re-Entry Platform for Women returning after career breaks (SAP Hackathon - AI Inclusive Workforce)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "cds:run": "npx @sap/cds-dk run",
+    "build": "npx @sap/cds-dk build --production",
+    "test": "node test/test-services.js"
+  },
+  "keywords": [
+    "sap",
+    "cap",
+    "sap-btp",
+    "successfactors",
+    "hackathon",
+    "inclusive-workforce",
+    "women-in-tech",
+    "ai-career-reentry",
+    "gemini-ai",
+    "google-meet"
+  ],
+  "author": "Team Novanex - RestartHER",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@google/generative-ai": "^0.21.0",
+    "@sap/cds": "^7.8.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "@sap/cds-dk": "^7.8.3"
+  },
+  "cds": {
+    "requires": {
+      "db": {
+        "kind": "sqlite",
+        "credentials": {
+          "url": "db.sqlite"
+        }
+      },
+      "auth": {
+        "strategy": "mock"
+      }
+    }
+  }
+}

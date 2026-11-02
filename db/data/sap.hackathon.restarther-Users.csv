@@ -1,0 +1,5 @@
+ID;email;fullName;role;headline;careerBreakYears;breakReason;readinessScore;location;targetRoleTitle
+user-priya-001;priya.sharma@example.com;Priya Sharma;CANDIDATE;Senior Full-Stack & Cloud Solutions Architect;4.0;MATERNITY_CAREGIVING;89;Bangalore, India;SAP BTP Cloud & Full-Stack Architect
+user-ananya-001;ananya.roy@sap.com;Dr. Ananya Roy;MENTOR;VP of Engineering & Returnship Executive Mentor;0.0;OTHER;100;Palo Alto, CA, USA;Executive Engineering Lead
+user-sarah-001;sarah.jenkins@sap.com;Sarah Jenkins;HR_PARTNER;SAP Labs Diversity & Talent Acquisition Director;0.0;OTHER;100;Walldorf, Germany;Talent Acquisition Lead
+user-elena-001;elena.vance@mindworkforce.org;Dr. Elena Vance, LMFT;THERAPIST;Return-to-Work Behavioral Specialist & Executive Coach;0.0;OTHER;100;Virtual / Global;Lead Wellbeing Counselor

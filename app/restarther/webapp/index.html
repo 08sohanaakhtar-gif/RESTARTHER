@@ -1,0 +1,1609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RestartHER — AI-Powered Inclusive Career Re-Entry Platform | SAP Hackathon</title>
+  <link rel="icon" type="image/svg+xml" href="assets/woman-logo.svg">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Ambient Animated Light Particles Canvas -->
+  <canvas id="ambient-canvas"></canvas>
+
+  <!-- Ambient Radial Light Vignette Layers -->
+  <div class="ambient-glow-layers"></div>
+
+  <!-- Main App Wrapper -->
+  <div class="app-container">
+
+    <!-- Persistent Header Navigation -->
+    <header class="main-nav">
+      <div class="brand-wrapper" id="nav-logo" title="Back to Persona Selector">
+        <div class="logo-badge">
+          <img src="assets/woman-logo.svg" alt="RestartHER Logo">
+        </div>
+        <div class="brand-title">
+          Restart<span>HER</span>
+        </div>
+        <div class="hackathon-pill">SAP BTP Edition</div>
+      </div>
+
+      <!-- Role Switcher Capsule (Visible in Stage 3) -->
+      <nav class="role-switcher-capsule" id="role-switcher-nav" style="display: none;">
+        <button class="role-switcher-btn active" data-persona="candidate">
+          <span>👤</span> Candidate
+        </button>
+        <button class="role-switcher-btn" data-persona="mentor">
+          <span>👥</span> Human Mentor
+        </button>
+        <button class="role-switcher-btn" data-persona="hr">
+          <span>🏢</span> HR Partner
+        </button>
+        <button class="role-switcher-btn" data-persona="therapist">
+          <span>🌿</span> Therapist
+        </button>
+      </nav>
+
+      <!-- Nav Actions (Sound, Notifications & User Profile) -->
+      <div class="nav-actions">
+        <button class="notif-btn" id="btn-sound-toggle" title="Toggle Crystal Chimes Audio">
+          <span id="sound-icon">🔊</span>
+        </button>
+        <button class="notif-btn" id="btn-notifications" title="Notifications">
+          <span>🔔</span>
+          <span class="notif-badge">3</span>
+        </button>
+        <div class="profile-pill" id="nav-profile-pill" title="Click to view your profile details or switch account">
+          <div class="profile-avatar" id="nav-profile-avatar">PS</div>
+          <div class="profile-info">
+            <span class="profile-name" id="nav-profile-name">Priya Sharma</span>
+            <span class="profile-role" id="nav-profile-role">Returner Candidate</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ======================================================================
+         STAGE 1: Cinematic Kinetic Hero Intro (Minimal & Uncluttered)
+         ====================================================================== -->
+    <section id="stage-1">
+      <!-- Glowing Gold Badge with Flowing Woman Logo -->
+      <div class="hero-gold-badge">
+        <img src="assets/woman-logo.svg" alt="RestartHER Gold Logo">
+      </div>
+
+      <!-- Kinetic Text Reveal Headline -->
+      <div class="hero-tagline-container">
+        <h1 class="hero-kinetic-title">
+          <span class="line-1 text-gold-gradient font-serif">Her career may have paused.</span>
+          <span class="line-2 text-rose-gradient font-serif">Her potential never did.</span>
+        </h1>
+      </div>
+
+      <!-- Sub-headline -->
+      <p class="hero-subheadline">
+        AI-Powered Inclusive Career Pathways for women returning after career breaks. Neutralizing resume-gap stigma, calculating missing skill deltas, and connecting with executive mentors.
+      </p>
+
+      <!-- Single Glowing 3D Glass CTA Button -->
+      <button class="cta-glass-btn" id="btn-start-journey">
+        <span>Begin Re-Entry Journey</span>
+        <svg class="cta-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </button>
+    </section>
+
+    <!-- ======================================================================
+         STAGE 2: Persona Selector ("Who is using this portal?")
+         ====================================================================== -->
+    <section id="stage-2">
+      <div class="stage-header">
+        <div class="stage-supertitle">AI Inclusive Workforce Architecture</div>
+        <h2 class="stage-title text-gold-gradient">Who is using this portal?</h2>
+        <p class="stage-subtitle">
+          Select a personalized workspace tailored for returners, executive mentors, enterprise talent partners, or wellbeing counselors.
+        </p>
+      </div>
+
+      <!-- 4 Glassmorphic Role Cards with 3D Tilt Effect -->
+      <div class="persona-grid">
+
+        <!-- Persona 1: Candidate / Returner ("Priya's Portal") -->
+        <div class="persona-card persona-candidate" data-persona="candidate">
+          <div class="persona-badge-3d">
+            <!-- 3D Computer & Skill Growth SVG -->
+            <svg viewBox="0 0 64 64" fill="none">
+              <rect x="8" y="10" width="48" height="34" rx="6" fill="rgba(224, 30, 90, 0.25)" stroke="#E8A7A1" stroke-width="2"/>
+              <path d="M 16 34 L 26 24 L 36 29 L 48 17" stroke="#D4AF37" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="48" cy="17" r="3.5" fill="#FFF" stroke="#D4AF37" stroke-width="1.5"/>
+              <line x1="24" y1="44" x2="40" y2="44" stroke="#E8A7A1" stroke-width="3" stroke-linecap="round"/>
+              <line x1="32" y1="44" x2="32" y2="52" stroke="#E8A7A1" stroke-width="3"/>
+              <rect x="20" y="52" width="24" height="4" rx="2" fill="#D4AF37"/>
+            </svg>
+          </div>
+          <h3 class="persona-card-title">Candidate / Returner</h3>
+          <div class="persona-tagline">"Priya's Portal"</div>
+          <p class="persona-description">
+            Skills Discovery Agent, AI career roadmap, target role recommendations, and real-time mentor booking.
+          </p>
+          <div class="persona-action-btn">
+            <span>Explore Candidate Portal</span>
+            <span>→</span>
+          </div>
+        </div>
+
+        <!-- Persona 2: Human Mentor -->
+        <div class="persona-card persona-mentor" data-persona="mentor">
+          <div class="persona-badge-3d">
+            <!-- 3D Avatars & Call Launcher SVG -->
+            <svg viewBox="0 0 64 64" fill="none">
+              <circle cx="24" cy="22" r="10" fill="rgba(212, 175, 55, 0.3)" stroke="#D4AF37" stroke-width="2"/>
+              <circle cx="42" cy="24" r="9" fill="rgba(224, 30, 90, 0.3)" stroke="#E01E5A" stroke-width="2"/>
+              <path d="M 12 46 C 12 38, 20 34, 26 34 C 32 34, 36 38, 36 46" stroke="#D4AF37" stroke-width="2.5" stroke-linecap="round"/>
+              <path d="M 36 46 C 36 40, 42 36, 48 36 C 54 36, 56 40, 56 46" stroke="#E01E5A" stroke-width="2" stroke-linecap="round"/>
+              <!-- Calendar / Meet Marker -->
+              <rect x="36" y="38" width="18" height="18" rx="4" fill="#1A0B2E" stroke="#D4AF37" stroke-width="1.5"/>
+              <circle cx="41" cy="45" r="1.5" fill="#D4AF37"/>
+              <circle cx="45" cy="45" r="1.5" fill="#D4AF37"/>
+              <circle cx="49" cy="45" r="1.5" fill="#E01E5A"/>
+            </svg>
+          </div>
+          <h3 class="persona-card-title">Human Mentor</h3>
+          <div class="persona-tagline">"Dr. Ananya's Space"</div>
+          <p class="persona-description">
+            Direct 1-on-1 check-ins & real-time Google Meet call launcher with dynamic meeting link generation.
+          </p>
+          <div class="persona-action-btn">
+            <span>Launch Mentor Space</span>
+            <span>→</span>
+          </div>
+        </div>
+
+        <!-- Persona 3: HR / Enterprise Partner -->
+        <div class="persona-card persona-hr" data-persona="hr">
+          <div class="persona-badge-3d">
+            <!-- 3D Enterprise & Bias Audit Briefcase SVG -->
+            <svg viewBox="0 0 64 64" fill="none">
+              <rect x="10" y="18" width="44" height="34" rx="5" fill="rgba(99, 102, 241, 0.25)" stroke="#A855F7" stroke-width="2"/>
+              <path d="M 24 18 V 12 C 24 10 26 8 28 8 H 36 C 38 8 40 10 40 12 V 18" stroke="#D4AF37" stroke-width="2"/>
+              <line x1="10" y1="30" x2="54" y2="30" stroke="#A855F7" stroke-width="1.5"/>
+              <circle cx="32" cy="30" r="3" fill="#D4AF37"/>
+              <!-- Checkmark of Bias Audit -->
+              <path d="M 25 42 L 30 46 L 41 36" stroke="#10B981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3 class="persona-card-title">HR / Enterprise Partner</h3>
+          <div class="persona-tagline">"SAP Talent Hub"</div>
+          <p class="persona-description">
+            Skills-first returnship candidate matching & bias audit overview neutralizing career break penalties.
+          </p>
+          <div class="persona-action-btn">
+            <span>Open Enterprise Portal</span>
+            <span>→</span>
+          </div>
+        </div>
+
+        <!-- Persona 4: Therapist / Wellbeing Coach -->
+        <div class="persona-card persona-therapist" data-persona="therapist">
+          <div class="persona-badge-3d">
+            <!-- 3D Lotus / Calm Mind SVG -->
+            <svg viewBox="0 0 64 64" fill="none">
+              <path d="M 32 14 C 36 24 46 28 46 36 C 46 44 38 48 32 48 C 26 48 18 44 18 36 C 18 28 28 24 32 14 Z" fill="rgba(16, 185, 129, 0.25)" stroke="#34D399" stroke-width="2"/>
+              <path d="M 32 28 C 30 35 23 38 21 44 C 27 46 32 48 32 48" stroke="#10B981" stroke-width="1.5"/>
+              <path d="M 32 28 C 34 35 41 38 43 44 C 37 46 32 48 32 48" stroke="#10B981" stroke-width="1.5"/>
+              <!-- Heart Accent -->
+              <path d="M 32 36 C 30 33 26 33 26 36 C 26 39 32 43 32 43 C 32 43 38 39 38 36 C 38 33 34 33 32 36 Z" fill="#E01E5A"/>
+            </svg>
+          </div>
+          <h3 class="persona-card-title">Therapist / Coach</h3>
+          <div class="persona-tagline">"Wellbeing Sanctuary"</div>
+          <p class="persona-description">
+            Mental health support, confidence-building check-ins, and returning-to-work wellness resources.
+          </p>
+          <div class="persona-action-btn">
+            <span>Enter Wellbeing Space</span>
+            <span>→</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         STAGE 2.2: Role-Based Authentication & Log-In Gateway
+         ====================================================================== -->
+    <section id="stage-login" style="display: none;">
+      <div class="stage-header" style="margin-bottom:2rem;">
+        <div class="stage-supertitle" id="login-role-badge">Returner Candidate · Authentication</div>
+        <h2 class="stage-title text-gold-gradient" id="login-portal-title">Access Your Personalized Portal</h2>
+        <p class="stage-subtitle" id="login-portal-desc">
+          Log in with your verified profile or credentials to unlock your personalized AI workspace.
+        </p>
+      </div>
+
+      <div class="login-card-container">
+        <!-- 1-Click Fast Pass Log In Section -->
+        <div class="quick-login-section">
+          <div class="login-section-header">
+            <div>
+              <span class="login-badge-pill">⚡ Fast Pass</span>
+              <strong style="color:var(--gold-light); font-size:0.95rem;">1-Click Verified Log-In</strong>
+            </div>
+            <span style="font-size:0.75rem; color:rgba(255,255,255,0.6);">Select an existing profile for instant access</span>
+          </div>
+
+          <div class="quick-accounts-grid" id="quick-accounts-container">
+            <!-- Populated dynamically by app.js based on selected role -->
+          </div>
+        </div>
+
+        <!-- Sleek Divider -->
+        <div class="login-divider">
+          <span>OR LOG IN WITH CUSTOM CREDENTIALS</span>
+        </div>
+
+        <!-- Custom Login / Registration Form -->
+        <form id="custom-login-form" class="custom-login-form">
+          <div class="form-grid-2col">
+            <div class="input-group">
+              <label class="input-label" for="login-name">
+                <span>Full Name</span>
+                <span style="font-size:0.7rem; color:rgba(255,255,255,0.5);">User Identity</span>
+              </label>
+              <input type="text" class="luxury-input" id="login-name" value="Priya Sharma" placeholder="e.g. Priya Sharma" required>
+            </div>
+
+            <div class="input-group">
+              <label class="input-label" for="login-email">
+                <span>Work / Personal Email</span>
+                <span style="font-size:0.7rem; color:rgba(255,255,255,0.5);">Account Identifier</span>
+              </label>
+              <input type="email" class="luxury-input" id="login-email" value="priya.sharma@sap.com" placeholder="name@company.com" required>
+            </div>
+          </div>
+
+          <div class="form-grid-2col">
+            <div class="input-group">
+              <label class="input-label" for="login-password">
+                <span>Password / Passkey</span>
+                <span style="font-size:0.7rem; color:var(--rose-gold);">Encrypted</span>
+              </label>
+              <input type="password" class="luxury-input" id="login-password" value="••••••••••••" placeholder="Enter password" required>
+            </div>
+
+            <div class="input-group">
+              <label class="input-label" for="login-role-select">
+                <span>Selected Portal Role</span>
+                <span style="font-size:0.7rem; color:var(--gold-light);">Workspace</span>
+              </label>
+              <select class="luxury-input" id="login-role-select">
+                <option value="candidate">Candidate / Returner ("Priya's Portal")</option>
+                <option value="mentor">Human Mentor ("Dr. Ananya's Space")</option>
+                <option value="hr">HR / Enterprise Partner ("SAP Talent Hub")</option>
+                <option value="therapist">Therapist / Wellbeing Coach ("Sanctuary")</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Enterprise Single Sign-On Simulation -->
+          <div class="sso-strip">
+            <span style="font-size:0.75rem; color:rgba(255,255,255,0.55); font-weight:600;">Enterprise Single Sign-On:</span>
+            <div style="display:flex; gap:0.6rem; flex-wrap:wrap;">
+              <button type="button" class="btn-sso" id="btn-sso-sap">
+                <span>🏢</span> SAP Cloud Identity Services
+              </button>
+              <button type="button" class="btn-sso" id="btn-sso-google">
+                <span>🌐</span> Google Workspace SSO
+              </button>
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-top:1.8rem; flex-wrap:wrap; gap:1rem;">
+            <button type="button" class="btn-glass-subtle" id="btn-login-back-to-personas">
+              ← Back to Persona Selector
+            </button>
+            <button type="submit" class="btn-luxury-rose" id="btn-login-submit" style="padding:0.9rem 2.2rem;">
+              <span>🔐</span> Authenticate & Continue →
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         STAGE 2.5: Candidate Career Re-Entry Intake Wizard
+         ====================================================================== -->
+    <section id="stage-intake">
+      <div class="stage-header" style="margin-bottom:2rem;">
+        <div class="stage-supertitle">Step 2 of 3 · Discovery Protocol</div>
+        <h2 class="stage-title text-gold-gradient">Candidate Re-Entry Profile & Goals</h2>
+        <p class="stage-subtitle">
+          Tell us about your background, career pause, and target role to generate your custom skills delta and match with mentors.
+        </p>
+      </div>
+
+      <div class="intake-card">
+        <!-- Quick Autofill Presets -->
+        <div class="autofill-strip">
+          <span style="font-size:0.75rem; color:var(--gold-light); font-weight:700;">⚡ Quick Presets:</span>
+          <button type="button" class="autofill-pill" id="autofill-priya">Priya Sharma (4-yr Maternity)</button>
+          <button type="button" class="autofill-pill" id="autofill-maya">Maya Patel (3-yr Family Care)</button>
+          <button type="button" class="autofill-pill" id="autofill-aisha">Aisha Khan (5-yr Health & Relocation)</button>
+          <button type="button" class="autofill-pill" id="autofill-clear" style="border-color:rgba(255,255,255,0.3); opacity:0.75;">Clear Form</button>
+        </div>
+
+        <form id="candidate-intake-form">
+          <!-- Row 1: Name, Email & Pre-break Role -->
+          <div class="form-grid-2col">
+            <div class="input-group">
+              <label class="input-label" for="intake-name">
+                <span>Full Name</span>
+                <span style="font-size:0.7rem; color:rgba(255,255,255,0.5);">Candidate Identifier</span>
+              </label>
+              <input type="text" class="luxury-input" id="intake-name" value="Priya Sharma" placeholder="e.g. Priya Sharma" required>
+            </div>
+
+            <div class="input-group">
+              <label class="input-label" for="intake-email">
+                <span>Email Address</span>
+                <span style="font-size:0.7rem; color:rgba(255,255,255,0.5);">Direct Notifications</span>
+              </label>
+              <input type="email" class="luxury-input" id="intake-email" value="priya.sharma@sap.com" placeholder="name@company.com" required>
+            </div>
+          </div>
+
+          <div class="input-group" style="margin-bottom:1.4rem;">
+            <label class="input-label" for="intake-prebreak-role">
+              <span>Pre-Break Job Title & Company</span>
+              <span style="font-size:0.7rem; color:rgba(255,255,255,0.5);">Verified Experience</span>
+            </label>
+            <input type="text" class="luxury-input" id="intake-prebreak-role" value="Lead Software Architect at SAP Labs" placeholder="e.g. Senior Full-Stack Engineer at Oracle" required>
+          </div>
+
+          <!-- Row 2: Experience & Break Duration -->
+          <div class="form-grid-2col">
+            <div class="input-group">
+              <label class="input-label" for="intake-prebreak-years">
+                <span>Total Pre-Break Experience (Years)</span>
+                <span id="label-prebreak-years-val" style="color:var(--gold-metallic);">8.5 Years</span>
+              </label>
+              <input type="number" step="0.5" min="1" max="25" class="luxury-input" id="intake-prebreak-years" value="8.5" required>
+            </div>
+
+            <div class="input-group">
+              <label class="input-label" for="intake-break-duration">
+                <span>Career Pause Duration</span>
+                <span style="font-size:0.7rem; color:var(--rose-gold);">Zero-Gap Stigma</span>
+              </label>
+              <select class="luxury-input" id="intake-break-duration">
+                <option value="1 Year">1 Year</option>
+                <option value="2 Years">2 Years</option>
+                <option value="3 Years">3 Years</option>
+                <option value="4 Years" selected>4 Years</option>
+                <option value="5+ Years">5+ Years</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Row 3: Break Reason & Target Role -->
+          <div class="form-grid-2col">
+            <div class="input-group">
+              <label class="input-label" for="intake-break-reason">
+                <span>Reason for Career Pause</span>
+                <span style="font-size:0.7rem; color:rgba(255,255,255,0.5);">Leadership Superpower Context</span>
+              </label>
+              <select class="luxury-input" id="intake-break-reason">
+                <option value="Maternity & Caregiving Break" selected>Maternity & Childcare</option>
+                <option value="Elderly Family Care">Elderly Family Care</option>
+                <option value="Health & Personal Sabbatical">Health & Wellness Sabbatical</option>
+                <option value="Relocation & Family Transition">Relocation & Global Transition</option>
+                <option value="Self-Directed Learning & Pivot">Self-Directed Learning & Pivot</option>
+              </select>
+            </div>
+
+            <div class="input-group">
+              <label class="input-label" for="intake-target-role">
+                <span>Desired Target Role</span>
+                <span style="font-size:0.7rem; color:var(--gold-light);">SAP Alignment</span>
+              </label>
+              <select class="luxury-input" id="intake-target-role">
+                <option value="SAP BTP Cloud & Full-Stack Architect" selected>SAP BTP Cloud & Full-Stack Architect</option>
+                <option value="Principal Enterprise Generative AI Specialist">Principal Enterprise Generative AI Specialist</option>
+                <option value="Lead Cloud-Native Microservices Engineer">Lead Cloud-Native Microservices Engineer</option>
+                <option value="Director of Software Engineering (Returner)">Director of Software Engineering (Returner)</option>
+                <option value="Full-Stack TypeScript & Node.js Developer">Full-Stack TypeScript & Node.js Developer</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Row 4: Skills & Tech Stack -->
+          <div class="input-group" style="margin-bottom:1.4rem;">
+            <label class="input-label" for="intake-skills">
+              <span>Past Core Technologies & Competencies</span>
+              <span style="font-size:0.7rem; color:rgba(255,255,255,0.5);">Used in skills delta calculation</span>
+            </label>
+            <textarea class="luxury-input" id="intake-skills" rows="2" placeholder="e.g. Java EE, Node.js, Spring Boot, Microservices, Cloud Foundry, Distributed Systems, SQL">Java EE, Node.js, Spring Boot, Microservices, Cloud Foundry, Distributed Systems, SQL</textarea>
+          </div>
+
+          <!-- Row 5: Work Flexibility, Mentorship Focus & Notes -->
+          <div class="form-grid-2col">
+            <div class="input-group">
+              <label class="input-label" for="intake-flexibility">Preferred Work Flexibility</label>
+              <select class="luxury-input" id="intake-flexibility">
+                <option value="Hybrid (2-3 days/week, flexible core hours)" selected>Hybrid (2-3 days/week, flexible core hours)</option>
+                <option value="100% Remote (Async-first culture)">100% Remote (Async-first culture)</option>
+                <option value="Protected Core Hours (10 AM - 4 PM)">Protected Core Hours (10 AM - 4 PM)</option>
+                <option value="Standard Returnship Cohort Schedule">Standard Returnship Cohort Schedule</option>
+              </select>
+            </div>
+
+            <div class="input-group">
+              <label class="input-label" for="intake-mentor-focus">Primary Mentorship Focus</label>
+              <select class="luxury-input" id="intake-mentor-focus">
+                <option value="System Architecture Defense & Cloud CAP" selected>System Architecture Defense & Cloud CAP</option>
+                <option value="Enterprise Generative AI & Gemini API Migration">Enterprise Generative AI & Gemini API Migration</option>
+                <option value="Resume Gap Neutralization & Bias Defense">Resume Gap Neutralization & Bias Defense</option>
+                <option value="Confidence Grounding & Work-Life Rhythm">Confidence Grounding & Work-Life Rhythm</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="input-group" style="margin-bottom:1.4rem;">
+            <label class="input-label" for="intake-notes">Specific Re-Entry Goals & Superpowers</label>
+            <input type="text" class="luxury-input" id="intake-notes" value="Refreshing cloud-native SAP CAP and enterprise GenAI skills. Ready to defend distributed architecture." placeholder="Any special context or constraints...">
+          </div>
+
+          <!-- Action Buttons -->
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-top:2rem; flex-wrap:wrap; gap:1rem;">
+            <button type="button" class="btn-glass-subtle" id="btn-back-to-personas">
+              ← Back to Persona Selector
+            </button>
+            <div style="display:flex; gap:0.8rem;">
+              <button type="button" class="btn-glass-subtle" id="btn-skip-intake">
+                Skip to Dashboard →
+              </button>
+              <button type="submit" class="btn-luxury-rose" id="btn-submit-intake" style="padding:0.9rem 2rem;">
+                <span>✨</span> Analyze Experience & Launch My Re-Entry Portal
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         STAGE 3: Dynamically Unfolding Dashboard
+         ====================================================================== -->
+    <main id="stage-3">
+
+      <!-- ====================================================================
+           VIEW 1: CANDIDATE / RETURNER ("PRIYA'S PORTAL")
+           ==================================================================== -->
+      <section class="dash-view-content active" id="view-candidate">
+        
+        <!-- Welcome Banner -->
+        <div class="dash-banner unfold-card delay-1">
+          <div class="banner-left">
+            <span class="box-badge" style="margin-bottom:0.6rem; display:inline-block;">Returner Profile · Verified</span>
+            <h2 class="text-gold-gradient font-serif" id="candidate-banner-name">Welcome back, Priya Sharma</h2>
+            <p id="candidate-banner-sub">Target Goal: <strong>SAP BTP Cloud & Full-Stack Architect</strong> · Career Pause: <strong>4 Years (Maternity & Caregiving)</strong></p>
+            <div style="display:flex; gap:0.6rem; margin-top:0.8rem; flex-wrap:wrap;">
+              <button class="btn-luxury-gold" id="btn-view-dossier" style="padding:0.4rem 1rem; font-size:0.78rem;">
+                📜 View SAP Verified Dossier
+              </button>
+              <button class="btn-glass-subtle" id="btn-inspect-connectors" style="padding:0.4rem 1rem; font-size:0.78rem;">
+                🔍 Inspect SAP BTP Connectors
+              </button>
+              <button class="btn-glass-subtle" id="btn-edit-intake" style="padding:0.4rem 1rem; font-size:0.78rem;">
+                ✏️ Edit Profile Intake
+              </button>
+            </div>
+          </div>
+          <div class="banner-right">
+            <div class="quick-metric">
+              <div class="metric-val" id="candidate-readiness-percent">89%</div>
+              <div class="metric-label">Composite Readiness</div>
+            </div>
+            <div class="quick-metric">
+              <div class="metric-val" style="color:var(--fuchsia-vibrant);">94%</div>
+              <div class="metric-label">SAP Labs Match</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Simulated Enterprise Connectors Status Strip -->
+        <div class="connectors-strip unfold-card delay-2">
+          <!-- Upstream Connector -->
+          <div class="connector-chip">
+            <div class="connector-icon-box">🏢</div>
+            <div class="connector-info">
+              <h5>Upstream HR Records</h5>
+              <div class="connector-status-tag">
+                <span class="status-dot-pulse"></span> SAP SuccessFactors (7.5 yrs verified)
+              </div>
+            </div>
+          </div>
+
+          <!-- Connected Connector -->
+          <div class="connector-chip">
+            <div class="connector-icon-box">🎓</div>
+            <div class="connector-info">
+              <h5>Connected LMS Catalog</h5>
+              <div class="connector-status-tag">
+                <span class="status-dot-pulse"></span> SAP Learning Hub (3 bridges available)
+              </div>
+            </div>
+          </div>
+
+          <!-- Downstream Connector -->
+          <div class="connector-chip" id="tih-sync-chip">
+            <div class="connector-icon-box">🌐</div>
+            <div class="connector-info">
+              <h5>Downstream Talent Hub</h5>
+              <div class="connector-status-tag" id="tih-sync-status-text">
+                <span class="status-dot-pulse"></span> Talent Intelligence Hub (Synced)
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Main 2-Column Grid -->
+        <div class="candidate-grid-layout">
+
+          <!-- Left Column: Skills Discovery & AI Career Copilot -->
+          <div class="candidate-left-col" style="display:flex; flex-direction:column; gap:2rem;">
+            <div class="glass-box unfold-card delay-3">
+            <div class="box-title-row">
+              <h3><span>✨</span> AI Skills Discovery Agent</h3>
+              <span class="box-badge">Powered by Google Gemini Free API</span>
+            </div>
+            
+            <p style="font-size:0.85rem; color:rgba(255,255,255,0.7); margin-bottom:0.8rem;">
+              Your past work experience is evaluated against the target role. Missing skill deltas are calculated and matched with verified SAP LMS micro-curricula.
+            </p>
+
+            <textarea class="discovery-textarea" id="candidate-experience-input" placeholder="Paste your past experience...">Priya Sharma — 8+ Years as Lead Software Architect at SAP Labs prior to a 4-year maternity break. Built high-throughput distributed microservices, REST APIs in Java/Node.js, and Cloud Foundry deployments. Mentored 12 engineers. Seeking to refresh cloud-native CAP and enterprise GenAI skills.</textarea>
+
+            <div class="action-row" style="margin-bottom: 1.5rem;">
+              <button class="btn-luxury-gold" id="btn-run-skills-delta">
+                <span>✨</span>
+                <span>Run AI Skills Delta Analysis</span>
+              </button>
+              <button class="btn-glass-subtle" onclick="document.getElementById('candidate-experience-input').value = 'Priya Sharma — Lead Full-Stack Architect with extensive enterprise background in Node.js, Spring Cloud, and SQL DBs. Took 4-year parental pause to care for twins. Ready to lead modern cloud applications on SAP BTP.';">
+                Reset Sample
+              </button>
+            </div>
+
+            <!-- Skills Delta List Container -->
+            <div class="box-title-row" style="margin-top:1.5rem; margin-bottom:1rem;">
+              <h4 style="font-size:1.1rem; font-weight:700;">Calculated Missing Skill Deltas</h4>
+              <span style="font-size:0.75rem; color:var(--gold-light);">Target: SAP BTP Architect</span>
+            </div>
+
+            <div id="skills-delta-list">
+              <!-- Item 1 -->
+              <div class="skill-delta-item">
+                <div class="skill-header">
+                  <div>
+                    <span class="skill-name">Enterprise Cloud Architecture (SAP BTP & AWS)</span>
+                    <div style="font-size:0.75rem; color:rgba(255,255,255,0.6);">Modern Cloud Infrastructure</div>
+                  </div>
+                  <span class="skill-gap-badge gap-medium">Δ -12% Gap</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill" style="width: 82%;"></div>
+                </div>
+                <div style="display:flex; justify-content:space-between; margin-bottom:0.4rem;">
+                  <span style="font-size:0.72rem; color:rgba(255,255,255,0.5);">Past Proficiency: 82%</span>
+                  <span style="font-size:0.72rem; color:var(--gold-light); font-weight:600;">Target: 94%</span>
+                </div>
+                <div class="skill-lms-tag">
+                  <span>📚</span>
+                  <span><strong>LMS Bridge:</strong> SAP-BTP-401: Cloud Application Programming Model Mastery</span>
+                </div>
+              </div>
+
+              <!-- Item 2 -->
+              <div class="skill-delta-item">
+                <div class="skill-header">
+                  <div>
+                    <span class="skill-name">Generative AI & LLM Integration (Gemini API)</span>
+                    <div style="font-size:0.75rem; color:rgba(255,255,255,0.6);">Emerging AI Technologies</div>
+                  </div>
+                  <span class="skill-gap-badge gap-high">Δ -45% Gap</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill" style="width: 40%;"></div>
+                </div>
+                <div style="display:flex; justify-content:space-between; margin-bottom:0.4rem;">
+                  <span style="font-size:0.72rem; color:rgba(255,255,255,0.5);">Past Proficiency: 40%</span>
+                  <span style="font-size:0.72rem; color:var(--gold-light); font-weight:600;">Target: 85%</span>
+                </div>
+                <div class="skill-lms-tag">
+                  <span>📚</span>
+                  <span><strong>LMS Bridge:</strong> AI-SAP-501: Integrating GenAI into SuccessFactors & BTP Solutions</span>
+                </div>
+              </div>
+
+              <!-- Item 3 -->
+              <div class="skill-delta-item">
+                <div class="skill-header">
+                  <div>
+                    <span class="skill-name">Full-Stack Node.js & TypeScript Architecture</span>
+                    <div style="font-size:0.75rem; color:rgba(255,255,255,0.6);">Core Engineering Acumen</div>
+                  </div>
+                  <span class="skill-gap-badge gap-ready">✓ Retained & Ready</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill" style="width: 92%;"></div>
+                </div>
+                <div style="display:flex; justify-content:space-between; margin-bottom:0.4rem;">
+                  <span style="font-size:0.72rem; color:rgba(255,255,255,0.5);">Past Proficiency: 92%</span>
+                  <span style="font-size:0.72rem; color:var(--gold-light); font-weight:600;">Target: 95%</span>
+                </div>
+                <div class="skill-lms-tag">
+                  <span>📚</span>
+                  <span><strong>LMS Bridge:</strong> FS-NODE-302: Modern Asynchronous Microservices Refresher</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Career Roadmap Section -->
+            <div class="box-title-row" style="margin-top:2rem; margin-bottom:1rem;">
+              <h4 style="font-size:1.1rem; font-weight:700;">AI Career Re-Entry Roadmap</h4>
+              <span class="box-badge" style="background:rgba(16,185,129,0.2); color:#6EE7B7; border-color:#10B981;">8-Week Cohort</span>
+            </div>
+
+            <div style="display:flex; flex-direction:column; gap:0.75rem;">
+              <div style="display:flex; gap:1rem; align-items:flex-start; padding:0.8rem; background:rgba(255,255,255,0.03); border-radius:10px;">
+                <span style="color:#10B981; font-weight:700;">✓</span>
+                <div>
+                  <strong style="font-size:0.88rem; color:#FFF;">Weeks 1-2: SAP CAP & Cloud Infrastructure Ramp</strong>
+                  <p style="font-size:0.78rem; color:rgba(255,255,255,0.65);">Deployed RestartHER CDS schema, OData V4 services, and SQLite database.</p>
+                </div>
+              </div>
+              <div style="display:flex; gap:1rem; align-items:flex-start; padding:0.8rem; background:rgba(212,175,55,0.08); border-radius:10px; border:1px solid rgba(212,175,55,0.3);">
+                <span style="color:var(--gold-metallic); font-weight:700;">⚡</span>
+                <div>
+                  <strong style="font-size:0.88rem; color:var(--gold-light);">Weeks 3-4: Enterprise GenAI & Skills Discovery Engine (Active)</strong>
+                  <p style="font-size:0.78rem; color:rgba(255,255,255,0.75);">Google Gemini Free API integration calculating skills gap deltas and automated role matching.</p>
+                </div>
+              </div>
+              <div style="display:flex; gap:1rem; align-items:flex-start; padding:0.8rem; background:rgba(255,255,255,0.03); border-radius:10px;">
+                <span style="color:rgba(255,255,255,0.4); font-weight:700;">○</span>
+                <div>
+                  <strong style="font-size:0.88rem; color:rgba(255,255,255,0.8);">Weeks 5-6: Executive Mentorship & Mock System Design Review</strong>
+                  <p style="font-size:0.78rem; color:rgba(255,255,255,0.65);">Direct Google Meet sessions with Dr. Ananya Roy to defend modern architecture solutions.</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <!-- End of Skills Discovery Box -->
+
+          <!-- Box 2: RestartHER AI Career Copilot & Technical Advisor -->
+          <div class="glass-box copilot-card unfold-card delay-3">
+            <div class="box-title-row">
+              <div style="display:flex; align-items:center; gap:0.6rem;">
+                <span style="font-size:1.4rem;">✨</span>
+                <div>
+                  <h3 style="margin-bottom:0.15rem; font-size:1.35rem;">RestartHER AI Career Copilot</h3>
+                  <div style="font-size:0.75rem; color:var(--gold-light);">Interactive Technical & System Design Re-Entry Advisor</div>
+                </div>
+              </div>
+              <span class="box-badge" style="background:rgba(212,175,55,0.15); color:var(--gold-light); border-color:var(--gold-metallic);">
+                Gemini AI & SAP CAP
+              </span>
+            </div>
+
+            <p style="font-size:0.82rem; color:rgba(255,255,255,0.72); margin-bottom:0.9rem; line-height:1.45;">
+              Ask real-time questions about defending your career pause, bridging legacy skills to SAP CAP, or preparing questions for your mentor check-ins.
+            </p>
+
+            <!-- Quick Copilot Prompt Chips -->
+            <div class="copilot-chips-strip">
+              <button type="button" class="copilot-chip" data-prompt="How should I frame my 4-year maternity pause during an SAP architecture interview?">
+                <span>⚡</span> Frame my 4-year pause
+              </button>
+              <button type="button" class="copilot-chip" data-prompt="Explain the key differences between Spring Boot and SAP CAP (Cloud Application Programming Model) for a returning architect.">
+                <span>☁️</span> SAP CAP vs Spring Boot
+              </button>
+              <button type="button" class="copilot-chip" data-prompt="What 3 high-impact architectural questions should I ask Dr. Ananya Roy in our Google Meet session?">
+                <span>🤝</span> Questions for Dr. Ananya
+              </button>
+              <button type="button" class="copilot-chip" data-prompt="How can I negotiate flexible hybrid core hours and protect my family commitments without compromising career progression?">
+                <span>💼</span> Hybrid & flexibility script
+              </button>
+            </div>
+
+            <!-- Chat History Box -->
+            <div id="copilot-chat-history" class="copilot-chat-history">
+              <div class="copilot-chat-msg copilot-bot-msg">
+                <div class="copilot-msg-top">
+                  <span class="copilot-avatar-icon">✨</span>
+                  <strong style="color:var(--gold-light); font-size:0.82rem;">RestartHER AI Career Copilot</strong>
+                  <span class="copilot-source-tag">Gemini AI Engine · Live</span>
+                </div>
+                <div class="copilot-msg-content">
+                  Hello <span id="copilot-welcome-name">Priya</span>! I'm your dedicated career re-entry copilot and enterprise system design advisor. How can I help you prepare for your returnship journey today? Ask me anything about modernizing your architecture background, framing career breaks, or interview defense.
+                </div>
+              </div>
+            </div>
+
+            <!-- Copilot Input Bar -->
+            <div class="copilot-input-row">
+              <input type="text" id="copilot-chat-input" class="copilot-text-input" placeholder="Ask about SAP CAP, interview defense, salary benchmarks, or framing gaps..." />
+              <button type="button" id="btn-send-copilot-chat" class="btn-luxury-rose" style="padding:0.75rem 1.6rem; border-radius:999px;">
+                <span>Send</span> <span>🚀</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- End of Left Column -->
+
+        <!-- Right Column: Human Mentor Booking & Returnship Matches -->
+        <div class="unfold-card delay-4" style="display:flex; flex-direction:column; gap:2rem;">
+
+            <!-- Mentor Choice & Live Availability Hub -->
+            <div class="glass-box">
+              <div class="box-title-row">
+                <div>
+                  <h3 style="margin-bottom:0.2rem;"><span>👥</span> Mentor Choice & Availability</h3>
+                  <div style="font-size:0.75rem; color:rgba(255,255,255,0.65);">Select an executive mentor and an open time slot to launch Google Meet.</div>
+                </div>
+                <span class="box-badge" style="background:rgba(212,175,55,0.2); color:var(--gold-light); border-color:var(--gold-metallic);">4 Mentors Active</span>
+              </div>
+
+              <!-- Mentor Filter Tabs -->
+              <div class="mentor-filter-strip">
+                <button type="button" class="mentor-filter-btn active" data-filter="all">All Mentors (4)</button>
+                <button type="button" class="mentor-filter-btn" data-filter="cloud">☁️ Cloud & BTP</button>
+                <button type="button" class="mentor-filter-btn" data-filter="ai">🧠 Enterprise AI</button>
+                <button type="button" class="mentor-filter-btn" data-filter="returner">👩‍💼 Returner Alumnae</button>
+              </div>
+
+              <!-- Mentor Catalog List -->
+              <div class="mentor-catalog-grid" id="mentor-catalog-container">
+                <!-- Mentor 1: Dr. Ananya Roy (Default selected) -->
+                <div class="mentor-select-card selected" data-mentor-id="mentor-ananya-001" data-category="cloud">
+                  <div class="mentor-card-top">
+                    <div class="mentor-header-left">
+                      <div class="mentor-avatar-lg" style="width:48px; height:48px; font-size:1.1rem;">AR</div>
+                      <div>
+                        <div style="display:flex; align-items:center; gap:0.5rem;">
+                          <strong style="font-size:0.95rem; color:#FFF;">Dr. Ananya Roy</strong>
+                          <span class="avail-pill avail-now"><span class="status-dot-pulse"></span> Available Now</span>
+                        </div>
+                        <div style="font-size:0.78rem; color:var(--gold-light);">VP Engineering · SAP Labs Global</div>
+                      </div>
+                    </div>
+                    <div style="text-align:right;">
+                      <div style="color:var(--gold-metallic); font-weight:700; font-size:0.85rem;">★ 5.0</div>
+                      <div style="font-size:0.7rem; color:rgba(255,255,255,0.5);">42 Mentees</div>
+                    </div>
+                  </div>
+                  <p style="font-size:0.78rem; color:rgba(255,255,255,0.7); line-height:1.4;">
+                    Executive sponsor for women returners at SAP. Expert in cloud-native CAP architectures and system design defense.
+                  </p>
+                  <div>
+                    <div style="font-size:0.72rem; color:var(--gold-light); font-weight:600; margin-bottom:0.3rem;">Open Time Slots:</div>
+                    <div class="slot-chips-row">
+                      <button type="button" class="slot-chip selected" data-slot="Instant 1-Click Call">⚡ Instant 1-Click Call</button>
+                      <button type="button" class="slot-chip" data-slot="Today: 3:30 PM - 4:00 PM">Today 3:30 PM</button>
+                      <button type="button" class="slot-chip" data-slot="Tomorrow: 10:00 AM - 10:30 AM">Tomorrow 10:00 AM</button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Mentor 2: Maya Lin -->
+                <div class="mentor-select-card" data-mentor-id="mentor-maya-002" data-category="ai">
+                  <div class="mentor-card-top">
+                    <div class="mentor-header-left">
+                      <div class="mentor-avatar-lg" style="width:48px; height:48px; font-size:1.1rem; background:linear-gradient(135deg, #3B82F6, #10B981);">ML</div>
+                      <div>
+                        <div style="display:flex; align-items:center; gap:0.5rem;">
+                          <strong style="font-size:0.95rem; color:#FFF;">Maya Lin</strong>
+                          <span class="avail-pill avail-today"><span class="status-dot-pulse" style="background:#F59E0B; box-shadow:0 0 8px #F59E0B;"></span> Available Today</span>
+                        </div>
+                        <div style="font-size:0.78rem; color:var(--gold-light);">Staff AI Architect · Google Cloud</div>
+                      </div>
+                    </div>
+                    <div style="text-align:right;">
+                      <div style="color:var(--gold-metallic); font-weight:700; font-size:0.85rem;">★ 4.9</div>
+                      <div style="font-size:0.7rem; color:rgba(255,255,255,0.5);">28 Mentees</div>
+                    </div>
+                  </div>
+                  <p style="font-size:0.78rem; color:rgba(255,255,255,0.7); line-height:1.4;">
+                    Pioneered inclusive AI hiring frameworks. Bridges returners from classical backend engineering to Gemini & GenAI workflows.
+                  </p>
+                  <div>
+                    <div style="font-size:0.72rem; color:var(--gold-light); font-weight:600; margin-bottom:0.3rem;">Open Time Slots:</div>
+                    <div class="slot-chips-row">
+                      <button type="button" class="slot-chip" data-slot="Today: 4:30 PM - 5:00 PM">Today 4:30 PM</button>
+                      <button type="button" class="slot-chip" data-slot="Tomorrow: 11:30 AM - 12:00 PM">Tomorrow 11:30 AM</button>
+                      <button type="button" class="slot-chip" data-slot="Friday: 3:00 PM - 3:30 PM">Friday 3:00 PM</button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Mentor 3: Sarah Jenkins -->
+                <div class="mentor-select-card" data-mentor-id="mentor-sarah-003" data-category="hr">
+                  <div class="mentor-card-top">
+                    <div class="mentor-header-left">
+                      <div class="mentor-avatar-lg" style="width:48px; height:48px; font-size:1.1rem; background:linear-gradient(135deg, #8B5CF6, #EC4899);">SJ</div>
+                      <div>
+                        <div style="display:flex; align-items:center; gap:0.5rem;">
+                          <strong style="font-size:0.95rem; color:#FFF;">Sarah Jenkins</strong>
+                          <span class="avail-pill avail-tomorrow">Available Tomorrow</span>
+                        </div>
+                        <div style="font-size:0.78rem; color:var(--gold-light);">Director Global Talent · SAP Diversity Office</div>
+                      </div>
+                    </div>
+                    <div style="text-align:right;">
+                      <div style="color:var(--gold-metallic); font-weight:700; font-size:0.85rem;">★ 4.95</div>
+                      <div style="font-size:0.7rem; color:rgba(255,255,255,0.5);">35 Mentees</div>
+                    </div>
+                  </div>
+                  <p style="font-size:0.78rem; color:rgba(255,255,255,0.7); line-height:1.4;">
+                    Spearheads skills-first returnship placements. Expert in overcoming algorithmic resume-gap biases and negotiating flexible compensation.
+                  </p>
+                  <div>
+                    <div style="font-size:0.72rem; color:var(--gold-light); font-weight:600; margin-bottom:0.3rem;">Open Time Slots:</div>
+                    <div class="slot-chips-row">
+                      <button type="button" class="slot-chip" data-slot="Tomorrow: 9:00 AM - 9:30 AM">Tomorrow 9:00 AM</button>
+                      <button type="button" class="slot-chip" data-slot="Tomorrow: 2:30 PM - 3:00 PM">Tomorrow 2:30 PM</button>
+                      <button type="button" class="slot-chip" data-slot="Friday: 11:00 AM - 11:30 AM">Friday 11:00 AM</button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Mentor 4: Dr. Rachel Patel -->
+                <div class="mentor-select-card" data-mentor-id="mentor-rachel-004" data-category="returner">
+                  <div class="mentor-card-top">
+                    <div class="mentor-header-left">
+                      <div class="mentor-avatar-lg" style="width:48px; height:48px; font-size:1.1rem; background:linear-gradient(135deg, #10B981, #F59E0B);">RP</div>
+                      <div>
+                        <div style="display:flex; align-items:center; gap:0.5rem;">
+                          <strong style="font-size:0.95rem; color:#FFF;">Dr. Rachel Patel</strong>
+                          <span class="avail-pill avail-now"><span class="status-dot-pulse"></span> Available Now</span>
+                        </div>
+                        <div style="font-size:0.78rem; color:var(--gold-light);">Principal Director · Accenture (Former 4-Yr Returner)</div>
+                      </div>
+                    </div>
+                    <div style="text-align:right;">
+                      <div style="color:var(--gold-metallic); font-weight:700; font-size:0.85rem;">★ 5.0</div>
+                      <div style="font-size:0.7rem; color:rgba(255,255,255,0.5);">31 Mentees</div>
+                    </div>
+                  </div>
+                  <p style="font-size:0.78rem; color:rgba(255,255,255,0.7); line-height:1.4;">
+                    Returned to technology leadership after a 4-year maternity break. Passionate about empowering women to view family caregiving as executive leadership training.
+                  </p>
+                  <div>
+                    <div style="font-size:0.72rem; color:var(--gold-light); font-weight:600; margin-bottom:0.3rem;">Open Time Slots:</div>
+                    <div class="slot-chips-row">
+                      <button type="button" class="slot-chip" data-slot="Instant 1-Click Call">⚡ Instant 1-Click Call</button>
+                      <button type="button" class="slot-chip" data-slot="Today: 6:00 PM - 6:30 PM">Today 6:00 PM</button>
+                      <button type="button" class="slot-chip" data-slot="Saturday: 10:00 AM - 10:30 AM">Saturday 10:00 AM</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Booking Confirmation & Live Call Launcher -->
+              <div class="meet-status-box" id="candidate-active-meet-box" style="margin-top:0.5rem;">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.6rem; font-size:0.82rem;">
+                  <span>Selected: <strong id="selected-mentor-name-display" style="color:var(--gold-light);">Dr. Ananya Roy</strong></span>
+                  <span id="selected-slot-display" class="box-badge" style="font-size:0.7rem;">Instant 1-Click Call</span>
+                </div>
+                <button class="btn-luxury-rose" id="btn-candidate-connect-mentor" style="width:100%; justify-content:center; padding:0.9rem;">
+                  <span>📞</span>
+                  <span id="btn-mentor-call-label">Connect with Dr. Ananya Roy on Google Meet</span>
+                </button>
+              </div>
+
+              <div style="font-size:0.75rem; color:rgba(255,255,255,0.55); line-height:1.4; margin-top:0.8rem;">
+                🔒 Node.js endpoint (<code>/api/generate-meet-link</code>) dynamically creates an instant Google Meet room, records the session in SQLite, and notifies both parties.
+              </div>
+            </div>
+
+            <!-- Interactive Competency Transferability Radar -->
+            <div class="glass-box">
+              <div class="box-title-row">
+                <h3><span>🕸️</span> Competency Transferability Radar</h3>
+                <span class="box-badge">SAP Benchmark</span>
+              </div>
+              <p style="font-size:0.78rem; color:rgba(255,255,255,0.7); margin-bottom:0.8rem; line-height:1.45;">
+                Demonstrates how your pre-break foundation in distributed architecture maps to modern SAP BTP Cloud & GenAI requirements.
+              </p>
+              <div id="skills-radar-container"></div>
+            </div>
+
+            <!-- Target Role Recommendations -->
+            <div class="glass-box">
+              <div class="box-title-row">
+                <h3><span>💼</span> Verified Returnship Openings</h3>
+                <span class="box-badge">Skills-First Matches</span>
+              </div>
+
+              <!-- Job 1 -->
+              <div style="background:rgba(22,9,36,0.65); border:1px solid rgba(255,255,255,0.08); border-radius:14px; padding:1.1rem; margin-bottom:1rem;">
+                <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:0.4rem;">
+                  <div>
+                    <h5 style="font-size:0.95rem; font-weight:700;">Senior SAP BTP Cloud Solutions Architect</h5>
+                    <div style="font-size:0.78rem; color:var(--gold-light);">SAP Labs Global · Returnship to Permanent</div>
+                  </div>
+                  <span class="box-badge" style="background:rgba(16,185,129,0.2); color:#6EE7B7; border-color:#10B981; font-weight:700;">
+                    94% Match
+                  </span>
+                </div>
+                <p style="font-size:0.78rem; color:rgba(255,255,255,0.7); margin-bottom:0.7rem;">
+                  Bangalore / Palo Alto / Hybrid (4-day week, flexible core hours) · Stipend: $8,500/mo
+                </p>
+                <div style="display:flex; gap:0.5rem;">
+                  <button class="btn-luxury-gold" style="padding:0.45rem 1rem; font-size:0.78rem;" onclick="showToast('Applied to SAP Labs Returnship Cohort!', 'success')">
+                    Apply with Verified Skills
+                  </button>
+                  <button class="btn-glass-subtle" style="padding:0.45rem 0.8rem; font-size:0.78rem;" onclick="showToast('Role saved to your Growth Portfolio', 'info')">
+                    Bookmark
+                  </button>
+                </div>
+              </div>
+
+              <!-- Job 2 -->
+              <div style="background:rgba(22,9,36,0.65); border:1px solid rgba(255,255,255,0.08); border-radius:14px; padding:1.1rem;">
+                <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:0.4rem;">
+                  <div>
+                    <h5 style="font-size:0.95rem; font-weight:700;">Principal Full-Stack Engineer - AI Workforce</h5>
+                    <div style="font-size:0.78rem; color:var(--gold-light);">Accenture Cloud Services · 100% Remote</div>
+                  </div>
+                  <span class="box-badge" style="background:rgba(212,175,55,0.2); color:var(--gold-light); border-color:var(--gold-metallic); font-weight:700;">
+                    91% Match
+                  </span>
+                </div>
+                <p style="font-size:0.78rem; color:rgba(255,255,255,0.7); margin-bottom:0.7rem;">
+                  Full Remote · Async-First Culture · Stipend: $8,200/mo
+                </p>
+                <div style="display:flex; gap:0.5rem;">
+                  <button class="btn-luxury-gold" style="padding:0.45rem 1rem; font-size:0.78rem;" onclick="showToast('Applied to Accenture Returnship!', 'success')">
+                    Apply with Verified Skills
+                  </button>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- ====================================================================
+           VIEW 2: HUMAN MENTOR ("DR. ANANYA ROY")
+           ==================================================================== -->
+      <section class="dash-view-content" id="view-mentor">
+
+        <!-- Mentor Banner -->
+        <div class="dash-banner unfold-card delay-1">
+          <div class="banner-left">
+            <span class="box-badge" style="background:rgba(212,175,55,0.2); color:var(--gold-light); border-color:var(--gold-metallic); margin-bottom:0.6rem; display:inline-block;">Executive Mentorship Workspace</span>
+            <h2 class="text-gold-gradient font-serif">Dr. Ananya Roy — VP Engineering & Returnship Mentor</h2>
+            <p>Guiding women returners through high-stakes technical architecture re-entry & interview confidence.</p>
+          </div>
+          <div class="banner-right">
+            <button class="btn-luxury-rose" id="btn-mentor-launch-call">
+              <span>🚀</span>
+              <span>Launch Instant Google Meet Room</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="mentor-grid-layout">
+
+          <!-- Left: Active Mentees & Live Call Sessions -->
+          <div class="glass-box unfold-card delay-2">
+            <div class="box-title-row">
+              <h3><span>📅</span> Active Returner Mentees & Calls</h3>
+              <span class="box-badge">Synchronized in SQLite</span>
+            </div>
+
+            <div id="mentor-sessions-list">
+              <!-- Dynamically populated or default fallback -->
+              <div class="mentee-queue-item">
+                <div>
+                  <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.25rem;">
+                    <strong style="font-size:0.95rem;">Priya Sharma</strong>
+                    <span class="box-badge" style="font-size:0.68rem;">CONFIRMED</span>
+                  </div>
+                  <div style="font-size:0.8rem; color:rgba(255,255,255,0.7); margin-bottom:0.4rem;">System Architecture Re-entry Strategy & Mock Interview</div>
+                  <div style="font-size:0.75rem; font-family:monospace; color:var(--gold-light);">https://meet.google.com/rh-care-2026</div>
+                </div>
+                <div>
+                  <a href="https://meet.google.com/rh-care-2026" target="_blank" class="btn-luxury-gold" style="padding:0.45rem 1rem; font-size:0.78rem; text-decoration:none;">
+                    Join Meet
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div style="margin-top:1.5rem; padding:1rem; background:rgba(255,255,255,0.03); border-radius:12px;">
+              <h5 style="font-size:0.88rem; font-weight:700; margin-bottom:0.4rem;">💡 Mentoring Returners Tip</h5>
+              <p style="font-size:0.78rem; color:rgba(255,255,255,0.7); line-height:1.45;">
+                Women returning after maternity often underestimate their seniority. Focus on validating their multi-year architecture depth rather than testing trivia on framework syntax changes.
+              </p>
+            </div>
+          </div>
+
+          <!-- Right: Mock Interview Rubric & Readiness Feedback -->
+          <div class="glass-box unfold-card delay-3">
+            <div class="box-title-row">
+              <h3><span>📝</span> Technical Readiness Assessment Rubric</h3>
+              <span class="box-badge">SAP Returnship Criteria</span>
+            </div>
+
+            <div style="margin-bottom:1.2rem;">
+              <label style="font-size:0.82rem; font-weight:600; display:block; margin-bottom:0.3rem;">Candidate: Priya Sharma</label>
+              <select style="width:100%; padding:0.6rem; border-radius:8px; background:rgba(18,7,27,0.8); border:1px solid rgba(255,255,255,0.15); color:#FFF; font-size:0.85rem;">
+                <option>Session 1: Distributed Architecture & CAP Refresh</option>
+                <option>Session 2: System Design & Resilience Tradeoffs</option>
+                <option>Session 3: Final Enterprise Re-Entry Defense</option>
+              </select>
+            </div>
+
+            <div style="display:flex; flex-direction:column; gap:1rem; margin-bottom:1.5rem;">
+              <div>
+                <div style="display:flex; justify-content:space-between; font-size:0.82rem; margin-bottom:0.3rem;">
+                  <span>Distributed Systems Acumen</span>
+                  <span style="color:var(--gold-metallic); font-weight:700;">9.4 / 10</span>
+                </div>
+                <div class="progress-track"><div class="progress-fill" style="width:94%;"></div></div>
+              </div>
+
+              <div>
+                <div style="display:flex; justify-content:space-between; font-size:0.82rem; margin-bottom:0.3rem;">
+                  <span>SAP BTP & Cloud Application Model Familiarity</span>
+                  <span style="color:var(--gold-metallic); font-weight:700;">8.8 / 10</span>
+                </div>
+                <div class="progress-track"><div class="progress-fill" style="width:88%;"></div></div>
+              </div>
+
+              <div>
+                <div style="display:flex; justify-content:space-between; font-size:0.82rem; margin-bottom:0.3rem;">
+                  <span>Executive Communication & Poise</span>
+                  <span style="color:var(--gold-metallic); font-weight:700;">9.8 / 10</span>
+                </div>
+                <div class="progress-track"><div class="progress-fill" style="width:98%;"></div></div>
+              </div>
+            </div>
+
+            <textarea style="width:100%; height:80px; background:rgba(18,7,27,0.7); border:1px solid rgba(255,255,255,0.15); border-radius:10px; padding:0.8rem; color:#FFF; font-size:0.82rem;" placeholder="Add mentor notes for Priya's Dynamic Growth Portfolio...">Priya demonstrates exemplary system design clarity. Her 4-year pause has in no way diminished her engineering foundation; recommend fast-tracking to SAP Labs Returnship Cohort.</textarea>
+
+            <button class="btn-luxury-gold" style="margin-top:1rem; width:100%; justify-content:center;" onclick="showToast('Assessment saved to Priya\'s SAP Growth Portfolio!', 'success')">
+              Save Assessment & Boost Readiness (+5%)
+            </button>
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- ====================================================================
+           VIEW 3: HR / ENTERPRISE PARTNER ("SAP LABS TALENT PORTAL")
+           ==================================================================== -->
+      <section class="dash-view-content" id="view-hr">
+
+        <!-- HR Banner -->
+        <div class="dash-banner unfold-card delay-1">
+          <div class="banner-left">
+            <span class="box-badge" style="background:rgba(99,102,241,0.2); color:#A5B4FC; border-color:#6366F1; margin-bottom:0.6rem; display:inline-block;">SAP Labs Enterprise Diversity & Talent</span>
+            <h2 class="text-gold-gradient font-serif">Skills-First Returnship Talent Intelligence</h2>
+            <p>Neutralizing algorithmic resume-gap penalties and auditing hiring bias in real time.</p>
+          </div>
+          <div class="banner-right">
+            <button class="btn-luxury-rose" id="btn-run-bias-audit">
+              <span>⚖️</span>
+              <span>Run Live Bias Audit</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 4 Metric Cards -->
+        <div class="audit-metric-cards unfold-card delay-2">
+          <div class="audit-card">
+            <div class="audit-num text-rose-gradient" id="metric-pre-audit-rate">14.2%</div>
+            <div class="audit-label">Pre-Audit Shortlist (Penalized for Gaps)</div>
+          </div>
+          <div class="audit-card">
+            <div class="audit-num text-gold-gradient" id="metric-post-audit-rate">76.5%</div>
+            <div class="audit-label">Post-Audit Shortlist (Skills-First Normalized)</div>
+          </div>
+          <div class="audit-card">
+            <div class="audit-num" style="color:#10B981;" id="metric-uplift-rate">+62.3%</div>
+            <div class="audit-label">Inclusive Returner Uplift</div>
+          </div>
+          <div class="audit-card">
+            <div class="audit-num" style="color:var(--gold-metallic);" id="metric-bias-score">98.4%</div>
+            <div class="audit-label">Bias Mitigation Compliance (Grade A+)</div>
+          </div>
+        </div>
+
+        <!-- Bias Neutralization Overview -->
+        <div class="glass-box unfold-card delay-3" style="margin-bottom:2rem;">
+          <div class="box-title-row">
+            <h3><span>🛡️</span> Algorithmic Biases Neutralized in Pipeline</h3>
+            <span class="box-badge" style="background:rgba(16,185,129,0.2); color:#6EE7B7; border-color:#10B981;">100% Compliant</span>
+          </div>
+
+          <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:1.2rem;">
+            <div style="background:rgba(18,7,27,0.6); padding:1.2rem; border-radius:12px; border:1px solid rgba(224,30,90,0.3);">
+              <div style="color:#FDA4AF; font-weight:700; font-size:0.9rem; margin-bottom:0.4rem;">1. Resume-Gap Penalty</div>
+              <p style="font-size:0.78rem; color:rgba(255,255,255,0.7); line-height:1.45;">
+                Traditional ATS penalizes >1.5 yr gaps by -35 pts. <strong>RestartHER neutralizes tenure gaps</strong> by weighting foundational architecture & verifiable skill deltas.
+              </p>
+            </div>
+
+            <div style="background:rgba(18,7,27,0.6); padding:1.2rem; border-radius:12px; border:1px solid rgba(212,175,55,0.3);">
+              <div style="color:var(--gold-light); font-weight:700; font-size:0.9rem; margin-bottom:0.4rem;">2. Recency Keyword Trap</div>
+              <p style="font-size:0.78rem; color:rgba(255,255,255,0.7); line-height:1.45;">
+                Rejects tenured leads missing brand-new library tags. <strong>RestartHER evaluates bridgeability velocity</strong> via targeted SAP LMS micro-courses.
+              </p>
+            </div>
+
+            <div style="background:rgba(18,7,27,0.6); padding:1.2rem; border-radius:12px; border:1px solid rgba(16,185,129,0.3);">
+              <div style="color:#6EE7B7; font-weight:700; font-size:0.9rem; margin-bottom:0.4rem;">3. Anonymized Screening</div>
+              <p style="font-size:0.78rem; color:rgba(255,255,255,0.7); line-height:1.45;">
+                Masks candidate personal identifiers during initial screening to eliminate maternal and age biases in technical review panels.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Anonymized Returner Pipeline Roster -->
+        <div class="glass-box unfold-card delay-4">
+          <div class="box-title-row">
+            <h3><span>📋</span> Verified Returner Pipeline (SAP SuccessFactors TIH Sync)</h3>
+            <button class="btn-luxury-gold" id="btn-sync-tih" style="padding:0.45rem 1.1rem; font-size:0.8rem;">
+              <span>🔄</span> Sync to SuccessFactors TIH
+            </button>
+          </div>
+
+          <table style="width:100%; border-collapse:collapse; font-size:0.85rem; text-align:left;">
+            <thead>
+              <tr style="border-bottom:1px solid rgba(255,255,255,0.15); color:rgba(255,255,255,0.6);">
+                <th style="padding:0.8rem;">Candidate ID</th>
+                <th>Target Role</th>
+                <th>Career Pause</th>
+                <th>Pre-Break Tenure</th>
+                <th>Readiness Score</th>
+                <th>Assigned Mentor</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom:1px solid rgba(255,255,255,0.06);">
+                <td style="padding:0.8rem; font-weight:700; color:var(--gold-light);">Priya Sharma (RET-98124)</td>
+                <td>SAP BTP Cloud Architect</td>
+                <td>4.0 Yrs (Maternity)</td>
+                <td>7.5 Yrs (Lead Architect)</td>
+                <td><span class="box-badge" style="background:rgba(16,185,129,0.2); color:#6EE7B7; border-color:#10B981;">94%</span></td>
+                <td>Dr. Ananya Roy</td>
+                <td>
+                  <button class="btn-luxury-rose" style="padding:0.35rem 0.8rem; font-size:0.75rem;" onclick="showToast('Interview offer sent to Priya Sharma!', 'success')">
+                    Offer Interview
+                  </button>
+                </td>
+              </tr>
+              <tr style="border-bottom:1px solid rgba(255,255,255,0.06);">
+                <td style="padding:0.8rem; font-weight:700; color:var(--gold-light);">Maya Patel (RET-77412)</td>
+                <td>Lead Full-Stack Engineer</td>
+                <td>3.5 Yrs (Family Care)</td>
+                <td>6.0 Yrs (Senior Dev)</td>
+                <td><span class="box-badge" style="background:rgba(16,185,129,0.2); color:#6EE7B7; border-color:#10B981;">91%</span></td>
+                <td>Sarah Jenkins</td>
+                <td>
+                  <button class="btn-luxury-rose" style="padding:0.35rem 0.8rem; font-size:0.75rem;" onclick="showToast('Interview offer sent to Maya Patel!', 'success')">
+                    Offer Interview
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding:0.8rem; font-weight:700; color:var(--gold-light);">Sarah Chen (RET-61093)</td>
+                <td>Enterprise AI Specialist</td>
+                <td>2.5 Yrs (Health Sabbatical)</td>
+                <td>5.5 Yrs (Data Engineer)</td>
+                <td><span class="box-badge" style="background:rgba(212,175,55,0.2); color:var(--gold-light); border-color:var(--gold-metallic);">88%</span></td>
+                <td>Dr. Elena Vance</td>
+                <td>
+                  <button class="btn-luxury-rose" style="padding:0.35rem 0.8rem; font-size:0.75rem;" onclick="showToast('Interview offer sent to Sarah Chen!', 'success')">
+                    Offer Interview
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </section>
+
+      <!-- ====================================================================
+           VIEW 4: THERAPIST & WELLBEING COACH ("DR. ELENA VANCE, LMFT")
+           ==================================================================== -->
+      <section class="dash-view-content" id="view-therapist">
+
+        <!-- Therapist Banner -->
+        <div class="dash-banner unfold-card delay-1">
+          <div class="banner-left">
+            <span class="box-badge" style="background:rgba(16,185,129,0.2); color:#6EE7B7; border-color:#10B981; margin-bottom:0.6rem; display:inline-block;">Mental Health & Returner Sanctuary</span>
+            <h2 class="text-gold-gradient font-serif">Dr. Elena Vance, LMFT — Return-to-Work Counselor</h2>
+            <p>Empowering women to overcome impostor syndrome, establish healthy boundaries, and balance family priorities.</p>
+          </div>
+          <div class="banner-right">
+            <button class="btn-luxury-gold" id="btn-trigger-breathing">
+              <span>🧘</span> 3-Minute Centering Exercise
+            </button>
+          </div>
+        </div>
+
+        <div class="wellbeing-grid-layout">
+
+          <!-- Left: Confidence & Impostor Syndrome Assessment -->
+          <div class="glass-box unfold-card delay-2">
+            <div class="box-title-row">
+              <h3><span>🧠</span> Re-Entry Confidence & Self-Efficacy Check</h3>
+              <span class="box-badge">Interactive Calibration</span>
+            </div>
+
+            <div class="affirmation-quote-box">
+              "Your career pause did not erase your architectural brilliance; it deepened your emotional intelligence, resilience, and executive perspective."
+            </div>
+
+            <div class="slider-container">
+              <div style="display:flex; justify-content:space-between; margin-bottom:0.5rem;">
+                <label style="font-size:0.85rem; font-weight:600;">Impostor Syndrome Hesitation Level</label>
+                <span id="impostor-slider-val" style="color:var(--gold-metallic); font-weight:800;">38%</span>
+              </div>
+              <input type="range" class="luxury-slider" id="impostor-slider" min="0" max="100" value="38">
+              <div style="display:flex; justify-content:space-between; font-size:0.72rem; color:rgba(255,255,255,0.5); margin-top:0.3rem;">
+                <span>0% (Fully Grounded)</span>
+                <span>50% (Transitional Doubt)</span>
+                <span>100% (High Anxiety)</span>
+              </div>
+            </div>
+
+            <div style="margin-top:1rem; padding:1rem; background:rgba(22,9,36,0.7); border-radius:12px; border:1px solid rgba(255,255,255,0.1);">
+              <h5 style="font-size:0.82rem; color:var(--gold-light); margin-bottom:0.25rem;">Psychological Trajectory</h5>
+              <p id="confidence-trajectory-text" style="font-size:0.85rem; color:#6EE7B7; font-weight:600;">
+                High Re-Entry Confidence (Architectural leadership ready to deploy)
+              </p>
+            </div>
+
+            <!-- Practical Constraints Checklist -->
+            <div class="box-title-row" style="margin-top:1.8rem; margin-bottom:0.8rem;">
+              <h4 style="font-size:1rem; font-weight:700;">Practical Constraints & Boundary Negotiation</h4>
+            </div>
+
+            <div style="display:flex; flex-direction:column; gap:0.6rem; font-size:0.82rem;">
+              <label style="display:flex; align-items:center; gap:0.6rem; cursor:pointer;">
+                <input type="checkbox" checked style="accent-color:var(--gold-metallic);">
+                <span>4-day hybrid ramp-up script pre-cleared with hiring manager</span>
+              </label>
+              <label style="display:flex; align-items:center; gap:0.6rem; cursor:pointer;">
+                <input type="checkbox" checked style="accent-color:var(--gold-metallic);">
+                <span>Protected focus blocks: No meetings between 4:30 PM - 7:30 PM (Family dinner)</span>
+              </label>
+              <label style="display:flex; align-items:center; gap:0.6rem; cursor:pointer;">
+                <input type="checkbox" checked style="accent-color:var(--gold-metallic);">
+                <span>Emergency childcare backup plan documented</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Right: AI Mindful Coping Assistant (Dr. Elena Vance) -->
+          <div class="glass-box unfold-card delay-3" style="display:flex; flex-direction:column;">
+            <div class="box-title-row">
+              <div>
+                <h3 style="margin-bottom:0.15rem; font-size:1.35rem;"><span>💬</span> AI Mindful Coping Sanctuary</h3>
+                <div style="font-size:0.75rem; color:var(--rose-gold);">Dr. Elena Vance, LMFT · Psychological Guidance</div>
+              </div>
+              <span class="box-badge" style="background:rgba(16,185,129,0.2); color:#6EE7B7; border-color:#10B981;">
+                Gemini AI Mindful Engine
+              </span>
+            </div>
+
+            <!-- Quick Therapist Prompt Chips -->
+            <div class="copilot-chips-strip" style="margin-bottom:0.9rem;">
+              <button type="button" class="therapist-chip" data-prompt="I feel everyone knows modern tools better than me and that I've fallen behind.">
+                <span>🧘</span> Younger peers & tools anxiety
+              </button>
+              <button type="button" class="therapist-chip" data-prompt="How do I overcome the guilt of leaving my kids to return to full-time work?">
+                <span>👶</span> Motherhood guilt & balance
+              </button>
+              <button type="button" class="therapist-chip" data-prompt="How do I set firm boundaries so I can pick up my children at 4:30 PM?">
+                <span>⏰</span> Setting 4:30 PM boundary
+              </button>
+              <button type="button" class="therapist-chip" data-prompt="Give me a 60-second psychological grounding affirmation before my interview.">
+                <span>🌟</span> 60-second affirmation
+              </button>
+            </div>
+
+            <div id="wellbeing-chat-history" class="copilot-chat-history" style="min-height:260px; max-height:300px;">
+              <div class="copilot-chat-msg copilot-bot-msg">
+                <div class="copilot-msg-top">
+                  <span class="copilot-avatar-icon" style="background:linear-gradient(135deg, #10B981, #059669);">🌿</span>
+                  <strong style="color:var(--rose-gold); font-size:0.82rem;">Dr. Elena Vance, LMFT</strong>
+                  <span class="copilot-source-tag">Live Psychological Counselor</span>
+                </div>
+                <div class="copilot-msg-content" style="color:#FFF4D0;">
+                  Welcome, <span id="therapist-welcome-name">Priya</span>. Stepping back into tech after career pause is a heroic transition. What thoughts, doubts, or anxieties are weighing on you today?
+                </div>
+              </div>
+            </div>
+
+            <div class="copilot-input-row" style="margin-top:0.8rem;">
+              <input type="text" id="wellbeing-chat-input" class="copilot-text-input" placeholder="e.g. I feel nervous that everyone is younger or knows new frameworks..." />
+              <button type="button" class="btn-luxury-rose" id="btn-send-wellbeing-chat" style="padding:0.75rem 1.6rem; border-radius:999px;">
+                <span>Send</span> <span>🌿</span>
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+      </section>
+
+    </main>
+
+    <!-- Google Meet Generated Instant Launch Modal -->
+    <div class="modal-overlay" id="meet-modal">
+      <div class="modal-content">
+        <button class="modal-close-btn" id="btn-close-meet-modal">&times;</button>
+        
+        <div style="text-align:center; margin-bottom:1.5rem;">
+          <div style="font-size:3rem; margin-bottom:0.5rem;">🚀</div>
+          <h3 class="text-gold-gradient font-serif" style="font-size:2rem; font-weight:700;">Google Meet Call Initialized</h3>
+          <p style="font-size:0.88rem; color:rgba(255,255,255,0.8);">
+            A private Google Meet session has been created and synced with SQLite & Google Calendar.
+          </p>
+        </div>
+
+        <div style="background:rgba(18,7,27,0.8); border:1px solid rgba(212,175,55,0.4); border-radius:16px; padding:1.2rem; margin-bottom:1.5rem; text-align:center;">
+          <div style="font-size:0.75rem; text-transform:uppercase; color:var(--gold-light); letter-spacing:1px; margin-bottom:0.3rem;">Instant Call Room</div>
+          <div id="modal-meet-url-text" class="meet-link-display" style="font-size:1.1rem; color:#FFF; font-weight:700;">
+            https://meet.google.com/xxx-yyyy-zzz
+          </div>
+          <div style="font-size:0.8rem; color:rgba(255,255,255,0.7); margin-top:0.4rem;">
+            Mentor: <strong id="modal-mentor-name">Dr. Ananya Roy</strong> · Topic: <span id="modal-meet-topic">Re-Entry System Design</span>
+          </div>
+        </div>
+
+        <div style="display:flex; gap:0.8rem;">
+          <button class="btn-luxury-rose" id="btn-join-meet-call" style="flex:1; justify-content:center; padding:0.9rem;">
+            <span>🚀</span> Join Google Meet Call
+          </button>
+          <button class="btn-glass-subtle" id="btn-copy-meet-link" style="padding:0.9rem 1.4rem;">
+            <span>📋</span> Copy Link
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mindful 4-7-8 Breathing Meditation Modal -->
+    <div class="modal-overlay" id="breathing-modal">
+      <div class="modal-content" style="text-align:center;">
+        <button class="modal-close-btn" id="btn-close-breathing-modal">&times;</button>
+        <span class="box-badge" style="background:rgba(16,185,129,0.2); color:#6EE7B7; border-color:#10B981; margin-bottom:0.5rem; display:inline-block;">Therapeutic Grounding</span>
+        <h3 class="text-gold-gradient font-serif" style="font-size:2rem; font-weight:700; margin-bottom:0.4rem;">4-7-8 Centering Exercise</h3>
+        <p style="font-size:0.85rem; color:rgba(255,255,255,0.75);">De-escalate re-entry anxiety and returner self-doubt.</p>
+
+        <div class="breathing-orb-container">
+          <div class="breathing-orb" id="breathing-orb">
+            <div class="breathing-countdown" id="breathing-countdown">4</div>
+            <span style="font-size:0.75rem; text-transform:uppercase; letter-spacing:1px; color:#FFF4D0;">Seconds</span>
+          </div>
+          <div class="breathing-instruction" id="breathing-instruction-text">
+            Inhale Confidence & Architectural Clarity (4s)
+          </div>
+        </div>
+
+        <button class="btn-luxury-gold" onclick="document.getElementById('breathing-modal').classList.remove('active')" style="margin:0 auto; padding:0.6rem 2rem;">
+          Complete & Ground
+        </button>
+      </div>
+    </div>
+
+    <!-- Official SAP Returner Verified Talent Dossier Modal -->
+    <div class="modal-overlay" id="dossier-modal">
+      <div class="modal-content" style="max-width:720px; padding:2rem;">
+        <button class="modal-close-btn" id="btn-close-dossier-modal">&times;</button>
+        
+        <div class="dossier-frame">
+          <img src="assets/woman-logo.svg" alt="Watermark" class="dossier-watermark">
+
+          <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:1.5rem; border-bottom:1px solid rgba(212,175,55,0.3); padding-bottom:1rem;">
+            <div>
+              <div style="font-size:0.7rem; letter-spacing:2px; text-transform:uppercase; color:var(--gold-metallic); font-weight:700;">Official Verification Protocol</div>
+              <h2 class="text-gold-gradient font-serif" style="font-size:2.2rem; margin:0.2rem 0;">SAP Inclusive Returner Talent Dossier</h2>
+              <div style="font-size:0.8rem; color:rgba(255,255,255,0.7);">SAP SuccessFactors Dynamic Growth Portfolio: <strong>DGP-2026-98124</strong></div>
+            </div>
+            <div class="dossier-seal">
+              <span>SAP BTP</span>
+              <span style="font-size:1.1rem; margin:2px 0;">★</span>
+              <span>VERIFIED</span>
+            </div>
+          </div>
+
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.2rem; font-size:0.85rem; margin-bottom:1.5rem;">
+            <div>
+              <div style="color:var(--gold-light); font-weight:700;">Candidate</div>
+              <div style="font-size:1rem; font-weight:700; color:#FFF;">Priya Sharma</div>
+              <div style="color:rgba(255,255,255,0.65); font-size:0.8rem;">Lead Cloud Solutions Architect</div>
+            </div>
+            <div>
+              <div style="color:var(--gold-light); font-weight:700;">Pre-Break Tenure (Verified)</div>
+              <div style="color:#FFF;">7.5 Years at SAP Labs Global Engineering</div>
+              <div style="color:#6EE7B7; font-size:0.8rem;">✓ Priority Fast-Track Rehire Approved</div>
+            </div>
+            <div>
+              <div style="color:var(--gold-light); font-weight:700;">Career Pause Status</div>
+              <div style="color:#FFF;">4.0 Years (Maternity & Eldercare)</div>
+              <div style="color:var(--rose-gold); font-size:0.8rem;">★ Normalized: Zero-Gap Penalty Applied</div>
+            </div>
+            <div>
+              <div style="color:var(--gold-light); font-weight:700;">Composite Readiness Rating</div>
+              <div style="color:#FFF; font-size:1.1rem; font-weight:800;">94% <span style="font-size:0.75rem; color:#10B981;">(Top 2% Returner Cohort)</span></div>
+              <div style="color:rgba(255,255,255,0.65); font-size:0.8rem;">Bias Mitigation Compliance: 98.4% (Grade A+)</div>
+            </div>
+          </div>
+
+          <div style="background:rgba(18,7,27,0.75); border:1px solid rgba(255,255,255,0.1); border-radius:12px; padding:1rem; margin-bottom:1.5rem; font-size:0.82rem;">
+            <div style="color:var(--gold-metallic); font-weight:700; margin-bottom:0.3rem;">Executive Mentor Endorsement</div>
+            <p style="color:#FFF4D0; font-style:italic; line-height:1.45;">
+              "Priya possesses extraordinary systems architecture instincts. Her 4-year pause has enriched her empathy, multi-tasking under pressure, and executive poise. I recommend her for immediate placement in the SAP Labs Cloud Returnship Cohort."
+            </p>
+            <div style="text-align:right; margin-top:0.5rem; font-weight:700; color:#FFF;">— Dr. Ananya Roy, VP Engineering (SAP Labs)</div>
+          </div>
+
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <div style="font-size:0.72rem; color:rgba(255,255,255,0.5);">Digitally Signed: SHA-256: 8f4a9b2c...sap-btp-2026</div>
+            <button class="btn-luxury-gold" onclick="window.print()" style="padding:0.5rem 1.4rem; font-size:0.8rem;">
+              🖨️ Print / Save Dossier PDF
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- SAP BTP Connectors Live Slide-Over Drawer -->
+    <div class="slide-drawer" id="connectors-drawer">
+      <button class="drawer-close-btn" id="btn-close-connectors-drawer">&times;</button>
+      
+      <div style="display:flex; align-items:center; gap:0.6rem; margin-bottom:0.4rem;">
+        <span style="font-size:1.4rem;">⚡</span>
+        <h3 class="text-gold-gradient font-serif" style="font-size:1.8rem; font-weight:700;">SAP BTP Integration Live Inspector</h3>
+      </div>
+      <p style="font-size:0.82rem; color:rgba(255,255,255,0.7); margin-bottom:1.5rem;">
+        Real-time telemetry and handshake protocols between RestartHER and SAP BTP enterprise services.
+      </p>
+
+      <!-- Upstream Status -->
+      <div style="background:rgba(18,7,27,0.6); border:1px solid rgba(255,255,255,0.1); border-radius:12px; padding:1.1rem; margin-bottom:1rem;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.3rem;">
+          <strong style="font-size:0.88rem; color:#FFF;">1. Upstream HR Records (SAP ERP)</strong>
+          <span class="box-badge" style="background:rgba(16,185,129,0.2); color:#6EE7B7; border-color:#10B981;">200 OK · 38ms</span>
+        </div>
+        <p style="font-size:0.78rem; color:rgba(255,255,255,0.65);">Endpoint: <code>/api/connectors/upstream-hr</code></p>
+        <div class="code-terminal-block">
+{
+  "system": "SAP SuccessFactors Employee Central",
+  "employeeId": "EMP-984210",
+  "verifiedTenure": "7.5 Years",
+  "rehireStatus": "Fast-Track Approved (Grade A+)"
+}
+        </div>
+      </div>
+
+      <!-- Connected LMS Status -->
+      <div style="background:rgba(18,7,27,0.6); border:1px solid rgba(255,255,255,0.1); border-radius:12px; padding:1.1rem; margin-bottom:1rem;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.3rem;">
+          <strong style="font-size:0.88rem; color:#FFF;">2. Connected LMS Catalog (SAP Learning)</strong>
+          <span class="box-badge" style="background:rgba(16,185,129,0.2); color:#6EE7B7; border-color:#10B981;">200 OK · 42ms</span>
+        </div>
+        <p style="font-size:0.78rem; color:rgba(255,255,255,0.65);">Endpoint: <code>/api/connectors/lms-catalog</code></p>
+        <div class="code-terminal-block">
+{
+  "coursesRegistered": 3,
+  "topCourse": "SAP-BTP-401 (Cloud Application Programming)",
+  "badgeCertified": "Enterprise AI Practitioner"
+}
+        </div>
+      </div>
+
+      <!-- Downstream TIH Status -->
+      <div style="background:rgba(18,7,27,0.6); border:1px solid rgba(255,255,255,0.1); border-radius:12px; padding:1.1rem; margin-bottom:1rem;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.3rem;">
+          <strong style="font-size:0.88rem; color:#FFF;">3. Downstream Talent Intelligence Hub</strong>
+          <span class="box-badge" style="background:rgba(212,175,55,0.2); color:var(--gold-light); border-color:var(--gold-metallic);">SYNCED LIVE · 29ms</span>
+        </div>
+        <p style="font-size:0.78rem; color:rgba(255,255,255,0.65);">Endpoint: <code>/api/connectors/successfactors-talent-hub</code></p>
+        <div class="code-terminal-block">
+{
+  "portfolioId": "DGP-2026-98124",
+  "biasFreeRating": "98.4%",
+  "assignedMentor": "Dr. Ananya Roy",
+  "candidateStatus": "Recommended for Final Match"
+}
+        </div>
+      </div>
+    </div>
+
+    <!-- User Profile & Unique Details Modal -->
+    <div class="modal-overlay" id="profile-modal">
+      <div class="modal-content" style="max-width:640px; padding:2.2rem;">
+        <button class="modal-close-btn" id="btn-close-profile-modal">&times;</button>
+        
+        <div style="display:flex; align-items:center; gap:1.2rem; margin-bottom:1.6rem; border-bottom:1px solid rgba(255,255,255,0.12); padding-bottom:1.4rem;">
+          <div class="mentor-avatar-lg" id="profile-modal-avatar" style="width:68px; height:68px; font-size:1.6rem;">PS</div>
+          <div>
+            <div style="display:flex; align-items:center; gap:0.6rem;">
+              <h2 class="text-gold-gradient font-serif" id="profile-modal-name" style="font-size:1.8rem; margin:0;">Priya Sharma</h2>
+              <span class="box-badge" id="profile-modal-status-badge">Authenticated</span>
+            </div>
+            <div style="font-size:0.85rem; color:var(--gold-light);" id="profile-modal-role">Returner Candidate · SAP BTP Cloud Architect</div>
+            <div style="font-size:0.78rem; color:rgba(255,255,255,0.6);" id="profile-modal-email">priya.sharma@sap.com</div>
+          </div>
+        </div>
+
+        <div id="profile-modal-details-body" style="display:flex; flex-direction:column; gap:1rem; margin-bottom:1.8rem;">
+          <!-- Dynamically populated profile attributes -->
+        </div>
+
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.8rem; border-top:1px solid rgba(255,255,255,0.1); padding-top:1.2rem;">
+          <button type="button" class="btn-glass-subtle" id="btn-profile-switch-account" style="color:#FDA4AF; border-color:rgba(224,30,90,0.4);">
+            🔄 Switch Account / Log Out
+          </button>
+          <div style="display:flex; gap:0.6rem;">
+            <button type="button" class="btn-glass-subtle" id="btn-profile-view-dossier">
+              📜 View Dossier
+            </button>
+            <button type="button" class="btn-luxury-gold" id="btn-profile-edit-intake">
+              ✏️ Edit Profile Intake
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div class="toast-container" id="toast-container"></div>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+      <div class="footer-left">
+        <span class="footer-team">Team Novanex</span>
+        <span>RestartHER — AI-Powered Inclusive Career Re-Entry Platform</span>
+      </div>
+      <div class="footer-right">
+        <span class="footer-badge">SAP HACKATHON · THEME: AI INCLUSIVE WORKFORCE</span>
+        <button onclick="transitionToStage(1)" class="btn-glass-subtle" style="padding:0.35rem 0.8rem; font-size:0.75rem;" title="Replay Cinematic Intro">
+          ↺ Replay Intro
+        </button>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/audio.js"></script>
+  <script src="js/particles.js"></script>
+  <script src="js/skills-radar.js"></script>
+  <script src="js/breathing.js"></script>
+  <script src="js/dossier.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

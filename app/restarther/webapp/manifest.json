@@ -1,0 +1,69 @@
+{
+  "_version": "1.32.0",
+  "sap.app": {
+    "id": "sap.hackathon.restarther",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "1.0.0"
+    },
+    "title": "RestartHER - AI-Powered Inclusive Career Re-Entry Platform",
+    "description": "Inclusive re-entry platform for women returning after career pauses (SAP Hackathon)",
+    "dataSources": {
+      "mainService": {
+        "uri": "/odata/v4/restart-her/",
+        "type": "OData",
+        "settings": {
+          "odataVersion": "4.0"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "sap-icon://female",
+      "favIcon": "assets/logo-icon.svg"
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "dependencies": {
+      "minUI5Version": "1.108.0",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.ui.layout": {},
+        "sap.f": {}
+      }
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "sap.hackathon.restarther.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "synchronizationMode": "None",
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      }
+    },
+    "rootView": {
+      "viewName": "sap.hackathon.restarther.view.App",
+      "type": "XML",
+      "async": true,
+      "id": "app"
+    }
+  }
+}

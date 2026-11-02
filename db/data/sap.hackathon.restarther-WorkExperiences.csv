@@ -1,0 +1,3 @@
+ID;user_ID;companyName;jobTitle;startDate;endDate;isPreBreak;skillsUsed;verifiedByHR
+exp-001;user-priya-001;SAP Labs Global Engineering;Lead Software Architect;2014-06-01;2022-01-15;true;Java EE, Distributed Systems, Cloud Foundry, Microservices, REST APIs;true
+exp-002;user-priya-001;ThoughtWorks Enterprise;Senior Full-Stack Consultant;2011-08-01;2014-05-30;true;JavaScript, Node.js, Spring Boot, PostgreSQL, Agile Architecture;true

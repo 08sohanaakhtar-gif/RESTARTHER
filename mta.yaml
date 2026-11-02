@@ -1,0 +1,100 @@
+_schema-version: '3.1'
+ID: restarther
+version: 1.0.0
+description: "RestartHER - AI-Powered Inclusive Career Re-Entry Platform (SAP Hackathon)"
+parameters:
+  enable-parallel-deployments: true
+
+build-parameters:
+  before-all:
+    - builder: custom
+      commands:
+        - npm ci
+
+modules:
+  # -------------------- SERVER MODULE --------------------
+  - name: restarther-srv
+    type: nodejs
+    path: gen/srv
+    parameters:
+      buildpack: nodejs_buildpack
+      memory: 512M
+      disk-quota: 1024M
+    build-parameters:
+      builder: npm
+    provides:
+      - name: srv-api
+        properties:
+          srv-url: ${default-url}
+    requires:
+      - name: restarther-db
+      - name: restarther-auth
+
+  # -------------------- DB DEPLOYER MODULE --------------------
+  - name: restarther-db-deployer
+    type: hdb
+    path: gen/db
+    parameters:
+      buildpack: nodejs_buildpack
+    requires:
+      - name: restarther-db
+
+  # -------------------- HTML5 APP HOST & UI --------------------
+  - name: restarther-app-content
+    type: com.sap.application.content
+    path: .
+    requires:
+      - name: restarther-html5-repo-host
+        parameters:
+          content-target: true
+    build-parameters:
+      build-result: resources
+      requires:
+        - artifacts:
+            - restarther.zip
+          name: restarther
+          target-path: resources/
+
+  - name: restarther
+    type: html5
+    path: app/restarther
+    build-parameters:
+      build-result: dist
+      builder: custom
+      commands:
+        - npm install
+        - npm run build
+      supported-platforms: []
+
+resources:
+  # -------------------- HANA DATABASE --------------------
+  - name: restarther-db
+    type: com.sap.xs.hdi-container
+    parameters:
+      service: hana
+      service-plan: hdi-shared
+
+  # -------------------- XSUAA AUTHENTICATION --------------------
+  - name: restarther-auth
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: xsuaa
+      service-plan: application
+      path: ./xs-security.json
+      config:
+        xsappname: restarther
+        tenant-mode: dedicated
+
+  # -------------------- HTML5 REPO HOST --------------------
+  - name: restarther-html5-repo-host
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: html5-apps-repo
+      service-plan: app-host
+
+  # -------------------- DESTINATION SERVICE --------------------
+  - name: restarther-destination-service
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: destination
+      service-plan: lite

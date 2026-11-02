@@ -1,0 +1,80 @@
+{
+  "xsappname": "restarther",
+  "tenant-mode": "dedicated",
+  "description": "Security profile for RestartHER SAP BTP application",
+  "scopes": [
+    {
+      "name": "$XSAPPNAME.Candidate",
+      "description": "Candidate/Returner Access to AI Skills Discovery and Career Pathways"
+    },
+    {
+      "name": "$XSAPPNAME.Mentor",
+      "description": "Human Mentor Access to Real-time Check-ins and Meet Launcher"
+    },
+    {
+      "name": "$XSAPPNAME.HRAuditor",
+      "description": "HR & Enterprise Partner Access to Bias Auditing and Returnship Matching"
+    },
+    {
+      "name": "$XSAPPNAME.Therapist",
+      "description": "Therapist/Coach Access to Wellbeing and Confidence Assessment"
+    },
+    {
+      "name": "$XSAPPNAME.Admin",
+      "description": "Administrative Access to SAP SuccessFactors Connectors"
+    }
+  ],
+  "role-templates": [
+    {
+      "name": "RestartHER_Candidate",
+      "description": "Candidate Role for Career Re-Entry Portal",
+      "scope-references": [
+        "$XSAPPNAME.Candidate"
+      ]
+    },
+    {
+      "name": "RestartHER_Mentor",
+      "description": "Human Mentor Role for Session Scheduling & Calls",
+      "scope-references": [
+        "$XSAPPNAME.Mentor"
+      ]
+    },
+    {
+      "name": "RestartHER_HR_Enterprise",
+      "description": "HR Partner Role for Bias Audits & Candidate Matching",
+      "scope-references": [
+        "$XSAPPNAME.HRAuditor"
+      ]
+    },
+    {
+      "name": "RestartHER_Therapist",
+      "description": "Therapist Role for Returner Wellbeing & Coaching",
+      "scope-references": [
+        "$XSAPPNAME.Therapist"
+      ]
+    },
+    {
+      "name": "RestartHER_Administrator",
+      "description": "Full Admin Access to Connectors & Audit Logs",
+      "scope-references": [
+        "$XSAPPNAME.Candidate",
+        "$XSAPPNAME.Mentor",
+        "$XSAPPNAME.HRAuditor",
+        "$XSAPPNAME.Therapist",
+        "$XSAPPNAME.Admin"
+      ]
+    }
+  ],
+  "role-collections": [
+    {
+      "name": "RestartHER_User_Collection",
+      "description": "Standard User Collection for RestartHER platform",
+      "role-template-references": [
+        "$XSAPPNAME.RestartHER_Candidate",
+        "$XSAPPNAME.RestartHER_Mentor",
+        "$XSAPPNAME.RestartHER_HR_Enterprise",
+        "$XSAPPNAME.RestartHER_Therapist"
+      ]
+    }
+  ]
+}
