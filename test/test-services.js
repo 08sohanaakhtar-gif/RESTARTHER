@@ -5,6 +5,11 @@
  */
 
 const http = require('http');
+const { Socket } = require('net');
+let localApp = null;
+try {
+    localApp = require('../server.js');
+} catch (e) {}
 
 function postRequest(path, data) {
     return new Promise((resolve, reject) => {
@@ -29,7 +34,37 @@ function postRequest(path, data) {
                 }
             });
         });
-        req.on('error', reject);
+
+        req.on('error', (err) => {
+            if (localApp) {
+                // In-memory fallback
+                const socket = new Socket();
+                const mockReq = new http.IncomingMessage(socket);
+                mockReq.method = 'POST';
+                mockReq.url = path;
+                mockReq.headers = {
+                    'content-type': 'application/json',
+                    'content-length': Buffer.byteLength(payload)
+                };
+                const mockRes = new http.ServerResponse(mockReq);
+                let body = '';
+                mockRes.write = (chunk) => { body += chunk; };
+                mockRes.end = (chunk) => {
+                    if (chunk) body += chunk;
+                    try {
+                        resolve({ status: mockRes.statusCode, body: JSON.parse(body) });
+                    } catch (e) {
+                        resolve({ status: mockRes.statusCode, body });
+                    }
+                };
+                localApp(mockReq, mockRes);
+                mockReq.emit('data', Buffer.from(payload));
+                mockReq.emit('end');
+            } else {
+                reject(err);
+            }
+        });
+
         req.write(payload);
         req.end();
     });
@@ -52,7 +87,32 @@ function getRequest(path) {
                 }
             });
         });
-        req.on('error', reject);
+
+        req.on('error', (err) => {
+            if (localApp) {
+                // In-memory fallback
+                const socket = new Socket();
+                const mockReq = new http.IncomingMessage(socket);
+                mockReq.method = 'GET';
+                mockReq.url = path;
+                mockReq.headers = { 'accept': 'application/json' };
+                const mockRes = new http.ServerResponse(mockReq);
+                let body = '';
+                mockRes.write = (chunk) => { body += chunk; };
+                mockRes.end = (chunk) => {
+                    if (chunk) body += chunk;
+                    try {
+                        resolve({ status: mockRes.statusCode, body: JSON.parse(body) });
+                    } catch (e) {
+                        resolve({ status: mockRes.statusCode, body });
+                    }
+                };
+                localApp(mockReq, mockRes);
+                mockReq.emit('end');
+            } else {
+                reject(err);
+            }
+        });
     });
 }
 

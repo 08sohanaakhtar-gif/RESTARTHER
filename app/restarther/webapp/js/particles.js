@@ -12,11 +12,11 @@ class ParticleEngine {
         this.particleCount = 65;
         this.mouse = { x: null, y: null, radius: 140 };
         this.colors = [
-            'rgba(212, 175, 55, ',    // Champagne Gold #D4AF37
-            'rgba(243, 229, 171, ',   // Pale Gold #F3E5AB
-            'rgba(224, 30, 90, ',     // Vibrant Rose Fuchsia #E01E5A
-            'rgba(232, 167, 161, ',   // Soft Rose Gold #E8A7A1
-            'rgba(180, 120, 240, '    // Violet Iris
+            'rgba(81, 45, 80, ',      // Deep Plum #512D50
+            'rgba(242, 140, 123, ',   // Coral #F28C7B
+            'rgba(200, 180, 220, ',   // Soft Lavender
+            'rgba(233, 221, 240, ',   // Lavender Card Tone #E9DDF0
+            'rgba(180, 140, 175, '    // Plum Mist
         ];
 
         this.init();

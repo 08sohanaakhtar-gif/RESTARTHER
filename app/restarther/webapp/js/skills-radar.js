@@ -46,7 +46,7 @@ class SkillsRadar {
         // Concentric guide rings (25%, 50%, 75%, 100%)
         const rings = [0.25, 0.5, 0.75, 1.0].map(ratio => {
             const r = this.radius * ratio;
-            return `<circle cx="${this.center}" cy="${this.center}" r="${r}" fill="none" stroke="rgba(255, 255, 255, 0.08)" stroke-dasharray="3 3"/>`;
+            return `<circle cx="${this.center}" cy="${this.center}" r="${r}" fill="none" stroke="rgba(81, 45, 80, 0.15)" stroke-dasharray="3 3"/>`;
         }).join('');
 
         // Radial axis lines & labels
@@ -54,8 +54,8 @@ class SkillsRadar {
             const end = this.getCoordinates(i, total, 100);
             const labelPt = this.getCoordinates(i, total, 122);
             return `
-                <line x1="${this.center}" y1="${this.center}" x2="${end.x}" y2="${end.y}" stroke="rgba(255, 255, 255, 0.12)" />
-                <text x="${labelPt.x}" y="${labelPt.y}" fill="rgba(255, 255, 255, 0.75)" font-size="9" text-anchor="middle" dominant-baseline="middle" font-family="'Plus Jakarta Sans', sans-serif">
+                <line x1="${this.center}" y1="${this.center}" x2="${end.x}" y2="${end.y}" stroke="rgba(81, 45, 80, 0.2)" />
+                <text x="${labelPt.x}" y="${labelPt.y}" fill="#512D50" font-size="10" font-weight="600" text-anchor="middle" dominant-baseline="middle" font-family="'Poppins', sans-serif">
                     ${s.name}
                 </text>
             `;
@@ -71,12 +71,12 @@ class SkillsRadar {
                     <!-- Background Glow -->
                     <defs>
                         <linearGradient id="radarTargetGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stop-color="#D4AF37" stop-opacity="0.35"/>
-                            <stop offset="100%" stop-color="#E01E5A" stop-opacity="0.2"/>
+                            <stop offset="0%" stop-color="#512D50" stop-opacity="0.25"/>
+                            <stop offset="100%" stop-color="#7A5379" stop-opacity="0.15"/>
                         </linearGradient>
                         <linearGradient id="radarCurrentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stop-color="#60A5FA" stop-opacity="0.4"/>
-                            <stop offset="100%" stop-color="#A78BFA" stop-opacity="0.25"/>
+                            <stop offset="0%" stop-color="#F28C7B" stop-opacity="0.45"/>
+                            <stop offset="100%" stop-color="#E9DDF0" stop-opacity="0.3"/>
                         </linearGradient>
                     </defs>
 
@@ -84,27 +84,27 @@ class SkillsRadar {
                     ${axes}
 
                     <!-- Target Role Benchmark Polygon -->
-                    <polygon id="radar-target-poly" points="${targetPoints}" fill="url(#radarTargetGrad)" stroke="#D4AF37" stroke-width="1.8" stroke-dasharray="4 3" opacity="0.85" />
+                    <polygon id="radar-target-poly" points="${targetPoints}" fill="url(#radarTargetGrad)" stroke="#512D50" stroke-width="2" stroke-dasharray="4 3" opacity="0.9" />
 
                     <!-- Current Returner Competency Polygon -->
-                    <polygon id="radar-current-poly" points="${currentPoints}" fill="url(#radarCurrentGrad)" stroke="#E01E5A" stroke-width="2.2" style="transition: all 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);" />
+                    <polygon id="radar-current-poly" points="${currentPoints}" fill="url(#radarCurrentGrad)" stroke="#F28C7B" stroke-width="2.5" style="transition: all 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);" />
 
                     <!-- Center point -->
-                    <circle cx="${this.center}" cy="${this.center}" r="3" fill="#D4AF37"/>
+                    <circle cx="${this.center}" cy="${this.center}" r="3.5" fill="#512D50"/>
                 </svg>
 
-                <div style="display:flex; gap:1.2rem; font-size:0.75rem; margin-top:0.4rem; justify-content:center;">
+                <div style="display:flex; gap:1.4rem; font-size:0.85rem; margin-top:0.6rem; justify-content:center; font-family:'Poppins',sans-serif;">
                     <div style="display:flex; align-items:center; gap:0.4rem;">
-                        <span style="display:inline-block; width:10px; height:10px; background:#E01E5A; border-radius:2px;"></span>
-                        <span style="color:rgba(255,255,255,0.8);">Current Skills</span>
+                        <span style="display:inline-block; width:12px; height:12px; background:#F28C7B; border-radius:3px;"></span>
+                        <span style="color:#512D50; font-weight:600;">Current Skills</span>
                     </div>
                     <div style="display:flex; align-items:center; gap:0.4rem;">
-                        <span style="display:inline-block; width:10px; height:10px; background:#D4AF37; border-radius:2px;"></span>
-                        <span style="color:var(--gold-light);">Target BTP Benchmark</span>
+                        <span style="display:inline-block; width:12px; height:12px; background:#512D50; border-radius:3px;"></span>
+                        <span style="color:#512D50; font-weight:600;">Target BTP Benchmark</span>
                     </div>
                 </div>
 
-                <button id="btn-simulate-bridge" class="btn-luxury-gold" style="margin-top:1.2rem; width:100%; justify-content:center; font-size:0.82rem; padding:0.6rem 1rem;">
+                <button id="btn-simulate-bridge" class="btn-luxury-rose" style="margin-top:1.2rem; width:100%; justify-content:center; font-size:0.9rem; padding:0.8rem 1.2rem;">
                     <span>⚡</span> Simulate Completing SAP-BTP-401
                 </button>
             </div>

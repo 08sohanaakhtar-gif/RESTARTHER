@@ -143,6 +143,8 @@ document.addEventListener('DOMContentLoaded', () => {
     initWellbeingModule();
     initCareerCopilotChat();
     initProfileModal();
+    initCandidateSubTabs();
+    initFeatureGuideModal();
     loadExistingSessions();
 
     // Initialize Advanced Widgets
@@ -1782,6 +1784,249 @@ function initMentorChoiceHub() {
                 slot: AppState.selectedSlot,
                 topic: `Architecture Defense & Career Re-Entry Strategy (${AppState.selectedSlot})`
             });
+        });
+    }
+}
+
+// ============================================================================
+// Candidate Spacious Multi-Tab Architecture
+// ============================================================================
+function initCandidateSubTabs() {
+    AppState.activeCandidateTab = 'skills';
+    const tabBtns = document.querySelectorAll('.cand-tab-btn');
+    const tabViews = document.querySelectorAll('.cand-subtab-view');
+
+    tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const tabName = btn.dataset.tab;
+            if (!tabName) return;
+
+            if (typeof SoundFx !== 'undefined') SoundFx.click();
+
+            // Toggle active button
+            tabBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            // Toggle active view
+            tabViews.forEach(v => v.classList.remove('active'));
+            const targetView = document.getElementById(`cand-tab-${tabName}`);
+            if (targetView) {
+                targetView.classList.add('active');
+            }
+
+            AppState.activeCandidateTab = tabName;
+
+            // If switching to returnships/radar, redraw radar to ensure proper SVG scaling
+            if (tabName === 'returnships' && window.skillsRadar) {
+                setTimeout(() => {
+                    window.skillsRadar.render();
+                }, 100);
+            }
+        });
+    });
+}
+
+// ============================================================================
+// Feature Guidance Pop-Up Modal ("What can I do here?")
+// ============================================================================
+function initFeatureGuideModal() {
+    const modal = document.getElementById('feature-guide-modal');
+    const openBtn = document.getElementById('btn-open-cand-guide');
+    const closeBtn = document.getElementById('btn-close-guide-modal');
+    const gotItBtn = document.getElementById('btn-guide-modal-gotit');
+    const iconEl = document.getElementById('guide-modal-icon');
+    const titleEl = document.getElementById('guide-modal-title');
+    const subEl = document.getElementById('guide-modal-sub');
+    const stepsBody = document.getElementById('guide-modal-steps-body');
+
+    const guideContent = {
+        skills: {
+            icon: '🎯',
+            title: 'Skills Discovery & Gap Analysis',
+            sub: 'Calculate your missing skills delta and get tailored SAP LMS bridges',
+            steps: [
+                {
+                    num: '1',
+                    title: 'Input Your Background & Pause Context',
+                    desc: 'Review or edit your past technical competencies and years of experience prior to your career break.'
+                },
+                {
+                    num: '2',
+                    title: 'Run AI Skills Delta Analysis',
+                    desc: 'Click the Coral CTA button to invoke Google Gemini AI, which cross-references your experience with enterprise SAP BTP Cloud requirements.'
+                },
+                {
+                    num: '3',
+                    title: 'Bridge Gaps with Verified LMS Courses',
+                    desc: 'Explore recommended micro-curricula from SAP Learning Hub tailored to rapidly close each missing competency delta.'
+                },
+                {
+                    num: '4',
+                    title: 'Follow Your 8-Week Cohort Roadmap',
+                    desc: 'Track milestones from CAP foundation ramp to mock system design review and executive mentorship defense.'
+                }
+            ]
+        },
+        copilot: {
+            icon: '✨',
+            title: 'AI Career Copilot & Technical Advisor',
+            sub: 'Real-time system design guidance and interview framing',
+            steps: [
+                {
+                    num: '1',
+                    title: 'Frame Career Breaks with Confidence',
+                    desc: 'Ask how to articulate caregiving or maternity pauses as leadership superpowers during enterprise architecture interviews.'
+                },
+                {
+                    num: '2',
+                    title: 'Translate Legacy Skills to Modern Cloud',
+                    desc: 'Understand architectural shifts between classical frameworks (Spring Boot, Java EE) and modern SAP CAP / Cloud Foundry.'
+                },
+                {
+                    num: '3',
+                    title: 'Use Instant Prompt Chips',
+                    desc: 'Click quick prompt suggestions to test negotiation scripts, questions for mentors, and system defense strategies.'
+                },
+                {
+                    num: '4',
+                    title: 'Live Gemini AI Intelligence',
+                    desc: 'Responses are streamed live from Google Gemini AI configured specifically for inclusive career re-entry.'
+                }
+            ]
+        },
+        mentors: {
+            icon: '👥',
+            title: 'Executive Mentorship & Live Google Meet',
+            sub: '1-on-1 sessions with executive leaders who champion returners',
+            steps: [
+                {
+                    num: '1',
+                    title: 'Filter Mentors by Domain',
+                    desc: 'Sort through our catalog by Cloud & BTP Architecture, Enterprise AI, or Returner Alumnae sponsors.'
+                },
+                {
+                    num: '2',
+                    title: 'Select an Open Time Slot',
+                    desc: 'Choose an instant 1-click call or pick an open time slot that fits your personal schedule.'
+                },
+                {
+                    num: '3',
+                    title: 'Generate Live Google Meet Room',
+                    desc: 'Click "Connect on Google Meet" to dynamically spin up an encrypted call room and log the booking in SQLite.'
+                },
+                {
+                    num: '4',
+                    title: 'Conduct System Design Mock Reviews',
+                    desc: 'Defend architecture solutions directly with VP-level leaders before enterprise interviews.'
+                }
+            ]
+        },
+        returnships: {
+            icon: '💼',
+            title: 'Verified Returnships & Competency Radar',
+            sub: 'Skills-first matching and multidimensional competency visualization',
+            steps: [
+                {
+                    num: '1',
+                    title: 'Inspect Competency Radar',
+                    desc: 'View your multidimensional radar chart comparing foundational depth against enterprise target benchmarks.'
+                },
+                {
+                    num: '2',
+                    title: 'Explore Verified Returnship Openings',
+                    desc: 'Review vetted returnship positions at SAP Labs Global and partner organizations featuring flexible core hours.'
+                },
+                {
+                    num: '3',
+                    title: 'Apply with Bias-Free Verified Skills',
+                    desc: 'Submit your profile directly to hiring teams—neutralizing algorithmic resume-gap filters.'
+                }
+            ]
+        },
+        wellbeing: {
+            icon: '🌿',
+            title: 'Mindful Wellbeing Sanctuary',
+            sub: 'De-escalate anxiety and re-center your leadership mindset',
+            steps: [
+                {
+                    num: '1',
+                    title: 'Launch 4-7-8 Breathing Guide',
+                    desc: 'Click "Launch 4-7-8 Breathing" for an animated rhythmic breathing session to calm pre-interview nervousness.'
+                },
+                {
+                    num: '2',
+                    title: 'Reframe Caregiving as Executive Training',
+                    desc: 'Remember that managing family pauses instills crisis management, empathy, and organizational resilience.'
+                },
+                {
+                    num: '3',
+                    title: 'Confidential Support with Dr. Elena Vance',
+                    desc: 'Access our dedicated psychological coach workspace for personalized impostor syndrome guidance.'
+                }
+            ]
+        }
+    };
+
+    function showGuide(tabKey) {
+        const key = tabKey || AppState.activeCandidateTab || 'skills';
+        const guide = guideContent[key] || guideContent.skills;
+
+        if (iconEl) iconEl.textContent = guide.icon;
+        if (titleEl) titleEl.textContent = guide.title;
+        if (subEl) subEl.textContent = guide.sub;
+
+        if (stepsBody) {
+            stepsBody.innerHTML = guide.steps.map(s => `
+                <div class="guide-step-card">
+                    <div class="guide-step-num">${s.num}</div>
+                    <div>
+                        <strong style="font-size:1.05rem; color:var(--color-primary); display:block; margin-bottom:0.25rem;">${s.title}</strong>
+                        <p style="font-size:0.9rem; color:rgba(81,45,80,0.85); line-height:1.5; margin:0;">${s.desc}</p>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        if (modal) {
+            modal.classList.add('active');
+            if (typeof SoundFx !== 'undefined') SoundFx.chime();
+        }
+    }
+
+    // Top "What can I do here?" button
+    if (openBtn) {
+        openBtn.addEventListener('click', () => {
+            showGuide(AppState.activeCandidateTab);
+        });
+    }
+
+    // Individual tab guide buttons
+    document.querySelectorAll('[data-tab-guide]').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const guideKey = btn.dataset.tabGuide;
+            showGuide(guideKey);
+        });
+    });
+
+    // Close Modal Events
+    if (closeBtn) {
+        closeBtn.addEventListener('click', () => {
+            if (modal) modal.classList.remove('active');
+        });
+    }
+
+    if (gotItBtn) {
+        gotItBtn.addEventListener('click', () => {
+            if (modal) modal.classList.remove('active');
+            if (typeof SoundFx !== 'undefined') SoundFx.click();
+        });
+    }
+
+    if (modal) {
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+            }
         });
     }
 }

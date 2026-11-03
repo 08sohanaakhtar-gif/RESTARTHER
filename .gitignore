@@ -16,7 +16,6 @@ restarther-data.json
 # Build & distribution output
 gen/
 dist/
-package-lock.json
 
 # Logs & temp files
 *.log

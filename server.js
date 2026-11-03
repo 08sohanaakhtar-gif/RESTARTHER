@@ -697,15 +697,19 @@ app.get('*', (req, res) => {
 });
 
 // Start Server
-app.listen(PORT, () => {
-    console.log(`=======================================================`);
-    console.log(`  RestartHER - AI Inclusive Career Re-Entry Platform  `);
-    console.log(`  SAP Hackathon Edition · Theme: AI Inclusive Workforce`);
-    console.log(`=======================================================`);
-    console.log(`  Server running at: http://localhost:${PORT}`);
-    console.log(`  OData Path: http://localhost:${PORT}/odata/v4/restart-her`);
-    console.log(`  Google Meet API: http://localhost:${PORT}/api/generate-meet-link`);
-    console.log(`  AI Skills Engine: http://localhost:${PORT}/api/ai-skills-delta`);
-    console.log(`  SAP Connectors: http://localhost:${PORT}/api/connectors/upstream-hr`);
-    console.log(`=======================================================`);
-});
+if (require.main === module) {
+    app.listen(PORT, () => {
+        console.log(`=======================================================`);
+        console.log(`  RestartHER - AI Inclusive Career Re-Entry Platform  `);
+        console.log(`  SAP Hackathon Edition · Theme: AI Inclusive Workforce`);
+        console.log(`=======================================================`);
+        console.log(`  Server running at: http://localhost:${PORT}`);
+        console.log(`  OData Path: http://localhost:${PORT}/odata/v4/restart-her`);
+        console.log(`  Google Meet API: http://localhost:${PORT}/api/generate-meet-link`);
+        console.log(`  AI Skills Engine: http://localhost:${PORT}/api/ai-skills-delta`);
+        console.log(`  SAP Connectors: http://localhost:${PORT}/api/connectors/upstream-hr`);
+        console.log(`=======================================================`);
+    });
+}
+
+module.exports = app;
