@@ -1,6 +1,6 @@
 /**
  * RestartHER - Ambient Kinetic Particle Canvas Engine
- * Renders floating metallic gold, rose gold, and deep plum light particles
+ * Renders floating Deep Plum, Coral, and Lavender light particles
  */
 
 class ParticleEngine {
@@ -14,9 +14,9 @@ class ParticleEngine {
         this.colors = [
             'rgba(81, 45, 80, ',      // Deep Plum #512D50
             'rgba(242, 140, 123, ',   // Coral #F28C7B
-            'rgba(200, 180, 220, ',   // Soft Lavender
-            'rgba(233, 221, 240, ',   // Lavender Card Tone #E9DDF0
-            'rgba(180, 140, 175, '    // Plum Mist
+            'rgba(233, 221, 240, ',   // Lavender #E9DDF0
+            'rgba(176, 125, 175, ',   // Soft Plum
+            'rgba(247, 182, 170, '    // Soft Coral
         ];
 
         this.init();
