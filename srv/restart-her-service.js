@@ -3,7 +3,12 @@
  * Implements OData endpoints, Google Meet generator, and AI hooks
  */
 
-const cds = require('@sap/cds');
+let cds;
+try {
+    cds = require('@sap/cds');
+} catch (e) {
+    // Optional CDS runtime for standalone CAP deployments
+}
 const careerService = require('./career-service');
 const auditService = require('./audit-service');
 

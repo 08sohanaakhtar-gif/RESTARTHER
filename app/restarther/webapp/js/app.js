@@ -615,58 +615,58 @@ function renderProfileModalContent() {
         if (user.persona === 'candidate') {
             modalBody.innerHTML = `
                 <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.9rem; font-size:0.85rem;">
-                    <div style="background:rgba(255,255,255,0.04); padding:0.8rem; border-radius:10px;">
+                    <div style="background:#FFFFFF; border:1.5px solid rgba(81,45,80,0.2); padding:0.8rem; border-radius:10px;">
                         <span style="font-size:0.7rem; color:var(--gold-light); font-weight:700;">TARGET ROLE:</span>
-                        <div style="font-weight:700; color:#FFF; margin-top:2px;">${p.targetRole || 'SAP BTP Cloud Architect'}</div>
+                        <div style="font-weight:700; color:var(--color-primary); margin-top:2px;">${p.targetRole || 'SAP BTP Cloud Architect'}</div>
                     </div>
-                    <div style="background:rgba(255,255,255,0.04); padding:0.8rem; border-radius:10px;">
+                    <div style="background:#FFFFFF; border:1.5px solid rgba(81,45,80,0.2); padding:0.8rem; border-radius:10px;">
                         <span style="font-size:0.7rem; color:var(--rose-gold); font-weight:700;">CAREER PAUSE:</span>
-                        <div style="font-weight:700; color:#FFF; margin-top:2px;">${p.breakDuration || '4 Years'} (${p.breakReason || 'Maternity'})</div>
+                        <div style="font-weight:700; color:var(--color-primary); margin-top:2px;">${p.breakDuration || '4 Years'} (${p.breakReason || 'Maternity'})</div>
                     </div>
-                    <div style="background:rgba(255,255,255,0.04); padding:0.8rem; border-radius:10px;">
+                    <div style="background:#FFFFFF; border:1.5px solid rgba(81,45,80,0.2); padding:0.8rem; border-radius:10px;">
                         <span style="font-size:0.7rem; color:var(--gold-light); font-weight:700;">PRE-BREAK TENURE:</span>
-                        <div style="color:#FFF; margin-top:2px;">${p.preBreakYears || '8.5'} yrs · ${p.preBreakRole || 'Lead Software Architect'}</div>
+                        <div style="color:var(--color-primary); font-weight:600; margin-top:2px;">${p.preBreakYears || '8.5'} yrs · ${p.preBreakRole || 'Lead Software Architect'}</div>
                     </div>
-                    <div style="background:rgba(255,255,255,0.04); padding:0.8rem; border-radius:10px;">
-                        <span style="font-size:0.7rem; color:#6EE7B7; font-weight:700;">COMPOSITE READINESS:</span>
-                        <div style="font-weight:800; color:#6EE7B7; font-size:1.1rem; margin-top:2px;">${p.readinessScore || 89}% (SAP Verified)</div>
+                    <div style="background:#FFFFFF; border:1.5px solid rgba(81,45,80,0.2); padding:0.8rem; border-radius:10px;">
+                        <span style="font-size:0.7rem; color:#047857; font-weight:700;">COMPOSITE READINESS:</span>
+                        <div style="font-weight:800; color:#047857; font-size:1.1rem; margin-top:2px;">${p.readinessScore || 89}% (SAP Verified)</div>
                     </div>
                 </div>
-                <div style="background:rgba(18,7,27,0.7); border:1px solid rgba(255,255,255,0.1); border-radius:10px; padding:0.8rem 1rem; font-size:0.8rem;">
+                <div style="background:#FFFFFF; border:1.5px solid rgba(81,45,80,0.2); border-radius:10px; padding:0.8rem 1rem; font-size:0.8rem;">
                     <span style="color:var(--gold-metallic); font-weight:700;">Core Competencies:</span>
-                    <p style="color:rgba(255,255,255,0.8); margin-top:0.25rem;">${p.skills || 'Java EE, Node.js, Spring Boot, Microservices, Cloud Foundry, SQL'}</p>
+                    <p style="color:rgba(81,45,80,0.85); margin-top:0.25rem;">${p.skills || 'Java EE, Node.js, Spring Boot, Microservices, Cloud Foundry, SQL'}</p>
                 </div>
             `;
         } else if (user.persona === 'mentor') {
             modalBody.innerHTML = `
                 <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.9rem; font-size:0.85rem;">
-                    <div style="background:rgba(255,255,255,0.04); padding:0.8rem; border-radius:10px;">
+                    <div style="background:#FFFFFF; border:1.5px solid rgba(81,45,80,0.2); padding:0.8rem; border-radius:10px;">
                         <span style="font-size:0.7rem; color:var(--gold-light); font-weight:700;">EXECUTIVE ROLE:</span>
-                        <div style="font-weight:700; color:#FFF; margin-top:2px;">${p.role || 'VP of Engineering'} (${p.company || 'SAP Labs'})</div>
+                        <div style="font-weight:700; color:var(--color-primary); margin-top:2px;">${p.role || 'VP of Engineering'} (${p.company || 'SAP Labs'})</div>
                     </div>
-                    <div style="background:rgba(255,255,255,0.04); padding:0.8rem; border-radius:10px;">
-                        <span style="font-size:0.7rem; color:#6EE7B7; font-weight:700;">LIVE AVAILABILITY:</span>
-                        <div style="font-weight:700; color:#6EE7B7; margin-top:2px;">${p.availabilityStatus || 'Available Now'}</div>
+                    <div style="background:#FFFFFF; border:1.5px solid rgba(81,45,80,0.2); padding:0.8rem; border-radius:10px;">
+                        <span style="font-size:0.7rem; color:#047857; font-weight:700;">LIVE AVAILABILITY:</span>
+                        <div style="font-weight:700; color:#047857; margin-top:2px;">${p.availabilityStatus || 'Available Now'}</div>
                     </div>
                 </div>
-                <div style="background:rgba(18,7,27,0.7); border:1px solid rgba(255,255,255,0.1); border-radius:10px; padding:0.8rem 1rem; font-size:0.8rem;">
+                <div style="background:#FFFFFF; border:1.5px solid rgba(81,45,80,0.2); border-radius:10px; padding:0.8rem 1rem; font-size:0.8rem;">
                     <span style="color:var(--gold-metallic); font-weight:700;">Mentorship Specialty:</span>
-                    <p style="color:rgba(255,255,255,0.8); margin-top:0.25rem;">${p.specialty || 'Enterprise Cloud Architecture & Distributed Systems'}</p>
+                    <p style="color:rgba(81,45,80,0.85); margin-top:0.25rem;">${p.specialty || 'Enterprise Cloud Architecture & Distributed Systems'}</p>
                 </div>
             `;
         } else if (user.persona === 'hr') {
             modalBody.innerHTML = `
-                <div style="background:rgba(255,255,255,0.04); padding:1rem; border-radius:10px; font-size:0.85rem;">
+                <div style="background:#FFFFFF; border:1.5px solid rgba(81,45,80,0.2); padding:1rem; border-radius:10px; font-size:0.85rem;">
                     <div style="color:var(--gold-light); font-weight:700; margin-bottom:0.3rem;">Division & Cohorts:</div>
-                    <div style="color:#FFF;">${p.department || 'SAP Enterprise Diversity Office'} · ${p.activeReturnships || 24} Active Returnship Roles</div>
-                    <div style="color:#6EE7B7; font-size:0.8rem; margin-top:0.4rem;">✓ Bias Mitigation Rating: ${p.biasMitigation || '98.4%'} (Grade A+)</div>
+                    <div style="color:var(--color-primary); font-weight:600;">${p.department || 'SAP Enterprise Diversity Office'} · ${p.activeReturnships || 24} Active Returnship Roles</div>
+                    <div style="color:#047857; font-size:0.8rem; margin-top:0.4rem;">✓ Bias Mitigation Rating: ${p.biasMitigation || '98.4%'} (Grade A+)</div>
                 </div>
             `;
         } else {
             modalBody.innerHTML = `
-                <div style="background:rgba(255,255,255,0.04); padding:1rem; border-radius:10px; font-size:0.85rem;">
+                <div style="background:#FFFFFF; border:1.5px solid rgba(81,45,80,0.2); padding:1rem; border-radius:10px; font-size:0.85rem;">
                     <div style="color:var(--rose-gold); font-weight:700; margin-bottom:0.3rem;">Clinical Focus:</div>
-                    <div style="color:#FFF;">${p.specialization || 'Impostor Syndrome, Transitional Resilience & Grounding'}</div>
+                    <div style="color:var(--color-primary); font-weight:600;">${p.specialization || 'Impostor Syndrome, Transitional Resilience & Grounding'}</div>
                 </div>
             `;
         }
@@ -886,7 +886,7 @@ function updateMentorSessionsList() {
     if (!listContainer) return;
 
     if (AppState.sessions.length === 0) {
-        listContainer.innerHTML = '<p style="color:rgba(255,255,255,0.6); font-size:0.88rem;">No active calls scheduled.</p>';
+        listContainer.innerHTML = '<p style="color:rgba(81,45,80,0.75); font-size:0.88rem;">No active calls scheduled.</p>';
         return;
     }
 
@@ -897,8 +897,8 @@ function updateMentorSessionsList() {
                     <strong style="font-size:0.95rem;">${s.candidateName}</strong>
                     <span class="box-badge" style="font-size:0.68rem;">${s.status}</span>
                 </div>
-                <div style="font-size:0.8rem; color:rgba(255,255,255,0.7); margin-bottom:0.4rem;">${s.topic}</div>
-                <div style="font-size:0.75rem; font-family:monospace; color:var(--gold-light);">${s.meetUrl}</div>
+                <div style="font-size:0.8rem; color:rgba(81,45,80,0.85); margin-bottom:0.4rem;">${s.topic}</div>
+                <div style="font-size:0.75rem; font-family:monospace; color:var(--color-primary); font-weight:600;">${s.meetUrl}</div>
             </div>
             <div style="display:flex; flex-direction:column; gap:0.4rem;">
                 <a href="${s.meetUrl}" target="_blank" class="btn-luxury-gold" style="padding:0.45rem 1rem; font-size:0.78rem; text-decoration:none;">
@@ -977,7 +977,7 @@ function renderSkillsDeltas(deltas) {
                 <div class="skill-header">
                     <div>
                         <span class="skill-name">${item.skill}</span>
-                        <div style="font-size:0.75rem; color:rgba(255,255,255,0.6);">${item.category}</div>
+                        <div style="font-size:0.75rem; color:rgba(81,45,80,0.75);">${item.category}</div>
                     </div>
                     <span class="skill-gap-badge ${badgeClass}">
                         ${item.gapDelta === 0 ? '✓ Ready' : `Δ -${item.gapDelta}% Gap`}
@@ -987,8 +987,8 @@ function renderSkillsDeltas(deltas) {
                     <div class="progress-fill" style="width: ${item.pastProficiency}%;"></div>
                 </div>
                 <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
-                    <span style="font-size:0.72rem; color:rgba(255,255,255,0.5);">Past: ${item.pastProficiency}%</span>
-                    <span style="font-size:0.72rem; color:var(--gold-light); font-weight:600;">Target: ${item.requiredProficiency}%</span>
+                    <span style="font-size:0.72rem; color:rgba(81,45,80,0.7); font-weight:600;">Past: ${item.pastProficiency}%</span>
+                    <span style="font-size:0.72rem; color:var(--color-primary); font-weight:700;">Target: ${item.requiredProficiency}%</span>
                 </div>
                 <div class="skill-lms-tag">
                     <span>📚</span>
@@ -1155,9 +1155,9 @@ function initWellbeingModule() {
             <div class="copilot-chat-msg copilot-bot-msg" id="${thinkingId}">
                 <div class="copilot-msg-top">
                     <span class="copilot-avatar-icon" style="background:linear-gradient(135deg, #10B981, #059669);">🌿</span>
-                    <strong style="color:var(--rose-gold); font-size:0.82rem;">Dr. Elena Vance, LMFT</strong>
+                    <strong style="color:var(--color-primary); font-weight:700; font-size:0.82rem;">Dr. Elena Vance, LMFT</strong>
                 </div>
-                <div class="copilot-msg-content" style="display:flex; align-items:center; gap:0.5rem; color:rgba(255,255,255,0.7);">
+                <div class="copilot-msg-content" style="display:flex; align-items:center; gap:0.5rem; color:rgba(81,45,80,0.8);">
                     <div class="copilot-typing-indicator"><span></span><span></span><span></span></div>
                     <span>Reflecting with mindful empathy...</span>
                 </div>
@@ -1187,10 +1187,10 @@ function initWellbeingModule() {
                 <div class="copilot-chat-msg copilot-bot-msg">
                     <div class="copilot-msg-top">
                         <span class="copilot-avatar-icon" style="background:linear-gradient(135deg, #10B981, #059669);">🌿</span>
-                        <strong style="color:var(--rose-gold); font-size:0.82rem;">Dr. Elena Vance, LMFT</strong>
+                        <strong style="color:var(--color-primary); font-weight:700; font-size:0.82rem;">Dr. Elena Vance, LMFT</strong>
                         <span class="copilot-source-tag">${sourceTag}</span>
                     </div>
-                    <div class="copilot-msg-content" style="color:#FFF4D0;">
+                    <div class="copilot-msg-content" style="color:var(--color-primary);">
                         ${formatAiResponse(data.response)}
                     </div>
                 </div>
@@ -1208,10 +1208,10 @@ function initWellbeingModule() {
                 <div class="copilot-chat-msg copilot-bot-msg">
                     <div class="copilot-msg-top">
                         <span class="copilot-avatar-icon" style="background:linear-gradient(135deg, #10B981, #059669);">🌿</span>
-                        <strong style="color:var(--rose-gold); font-size:0.82rem;">Dr. Elena Vance, LMFT</strong>
+                        <strong style="color:var(--color-primary); font-weight:700; font-size:0.82rem;">Dr. Elena Vance, LMFT</strong>
                         <span class="copilot-source-tag">RestartHER Sanctuary</span>
                     </div>
-                    <div class="copilot-msg-content" style="color:#FFF4D0;">
+                    <div class="copilot-msg-content" style="color:var(--color-primary);">
                         Remember: Your pause was a conscious choice for life and family. In modern progressive leadership, that emotional intelligence and resilience is a leadership superpower. Take one breath and stand tall in your verified achievements.
                     </div>
                 </div>
@@ -1288,9 +1288,9 @@ function initCareerCopilotChat() {
             <div class="copilot-chat-msg copilot-bot-msg" id="${thinkingId}">
                 <div class="copilot-msg-top">
                     <span class="copilot-avatar-icon">✨</span>
-                    <strong style="color:var(--gold-light); font-size:0.82rem;">RestartHER AI Career Copilot</strong>
+                    <strong style="color:var(--color-primary); font-weight:700; font-size:0.82rem;">RestartHER AI Career Copilot</strong>
                 </div>
-                <div class="copilot-msg-content" style="display:flex; align-items:center; gap:0.5rem; color:rgba(255,255,255,0.7);">
+                <div class="copilot-msg-content" style="display:flex; align-items:center; gap:0.5rem; color:rgba(81,45,80,0.8);">
                     <div class="copilot-typing-indicator"><span></span><span></span><span></span></div>
                     <span>Consulting Gemini AI & SAP CAP Architecture Engine...</span>
                 </div>
@@ -1318,7 +1318,7 @@ function initCareerCopilotChat() {
                 <div class="copilot-chat-msg copilot-bot-msg">
                     <div class="copilot-msg-top">
                         <span class="copilot-avatar-icon">✨</span>
-                        <strong style="color:var(--gold-light); font-size:0.82rem;">RestartHER AI Career Copilot</strong>
+                        <strong style="color:var(--color-primary); font-weight:700; font-size:0.82rem;">RestartHER AI Career Copilot</strong>
                         <span class="copilot-source-tag">${sourceTag}</span>
                     </div>
                     <div class="copilot-msg-content">${formatAiResponse(botText)}</div>
@@ -1337,7 +1337,7 @@ function initCareerCopilotChat() {
                 <div class="copilot-chat-msg copilot-bot-msg">
                     <div class="copilot-msg-top">
                         <span class="copilot-avatar-icon">✨</span>
-                        <strong style="color:var(--gold-light); font-size:0.82rem;">RestartHER AI Career Copilot</strong>
+                        <strong style="color:var(--color-primary); font-weight:700; font-size:0.82rem;">RestartHER AI Career Copilot</strong>
                         <span class="copilot-source-tag">RestartHER BTP Architecture Engine</span>
                     </div>
                     <div class="copilot-msg-content">
